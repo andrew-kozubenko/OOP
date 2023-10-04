@@ -84,7 +84,7 @@ public class Polynomial {
         for (int i = coefficients.length - 1; i >= 0; i--) {
             int coefficient = coefficients[i];
             if (coefficient != 0) {
-                if (!string.isEmpty()) {
+                if (string.length() != 0) {
                     if (coefficient > 0) {
                         string.append(" + ");
                     } else {
@@ -93,12 +93,14 @@ public class Polynomial {
                 }
                 if (coefficient != 1 || i == 0) {
                     if (coefficient == -1) {
-                        if (string.isEmpty())
+                        if (string.length() == 0) {
                             string.append("-");
-                        if (i == 0)
+                        }
+                        if (i == 0) {
                             string.append(-(coefficient));
+                        }
                     }
-                    else if(coefficient < 0 && !string.isEmpty()) {
+                    else if (coefficient < 0 && string.length() != 0) {
                         string.append(-(coefficient));
                     }
                     else {
