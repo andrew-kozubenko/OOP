@@ -2,12 +2,28 @@ package org.example;
 import java.util.Arrays;
 
 public class Polynomial {
+    /**
+     * Local array
+     */
     private final int[] coefficients;
 
+    /**
+     * Constructor
+     */
     public Polynomial(int[] coefficients) {
-        this.coefficients = coefficients;
+        this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
     }
 
+    /**
+     * Getter
+     */
+    public int[] getCoefficients() {
+        return coefficients;
+    }
+
+    /**
+     * Plus method
+     */
     public Polynomial plus(Polynomial second) {
         int max = Math.max(this.coefficients.length, second.coefficients.length);
         int[] res = new int[max];
@@ -21,6 +37,9 @@ public class Polynomial {
         return new Polynomial(res);
     }
 
+    /**
+     * Minus method
+     */
     public Polynomial minus(Polynomial second) {
         int maxLength = Math.max(this.coefficients.length, second.coefficients.length);
         int[] res = new int[maxLength];
@@ -34,7 +53,14 @@ public class Polynomial {
         return new Polynomial(res);
     }
 
+    /**
+     * Times method
+     */
     public Polynomial times(Polynomial second) {
+        if (this.coefficients.length == 0 || second.coefficients.length == 0) {
+            return new Polynomial(new int[0]);
+        }
+
         int[] res = new int[this.coefficients.length + second.coefficients.length - 1];
 
         for (int i = 0; i < this.coefficients.length; i++) {
@@ -46,6 +72,9 @@ public class Polynomial {
         return new Polynomial(res);
     }
 
+    /**
+     * Evaluate
+     */
     public int evaluate(int x) {
         int result = 0;
         int powerX = 1;
@@ -58,6 +87,9 @@ public class Polynomial {
         return result;
     }
 
+    /**
+     * Part of factorial after division
+     */
     private int partial_factorial(int first, int last) {
         int result = 1;
         for (int i = first; i <= last; i++) {
@@ -65,7 +97,15 @@ public class Polynomial {
         }
         return result;
     }
+
+    /**
+     * Differentiate
+     */
     public Polynomial differentiate(int degree) {
+        if (degree >= coefficients.length) {
+            return new Polynomial(new int[] {0});
+        }
+
         int[] res = new int[coefficients.length - degree];
 
         for (int i = degree; i < coefficients.length; i++) {
@@ -74,10 +114,27 @@ public class Polynomial {
 
         return new Polynomial(res);
     }
-    public boolean equals(Polynomial second) {
+
+    /**
+     * Overrided equals method
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this.coefficients == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Polynomial second = (Polynomial) obj;
         return Arrays.equals(this.coefficients, second.coefficients);
     }
 
+    /**
+     * Overrided toString method
+     */
+    @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
 
@@ -114,6 +171,10 @@ public class Polynomial {
                     }
                 }
             }
+        }
+
+        if (coefficients.length != 0 && string.length() == 0) {
+            string.append("0");
         }
 
         return string.toString();

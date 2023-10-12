@@ -14,7 +14,7 @@ build/
 *.ipr
 out/
 !**/src/main/**/out/
-!**/src/test/**/out/
+!**/src/main/**/javadoc/
 
 ### Eclipse ###
 .apt_generated
