@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class PolynomialTest {
     /**
-     * Test ToString
+     * Test ToString.
      */
     @Test
     public void testToString1() {
@@ -16,7 +16,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test ToString
+     * Test ToString.
      */
     @Test
     public void testToString2() {
@@ -26,7 +26,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Getter
+     * Test Getter.
      */
     @Test
     public void testGetter() {
@@ -37,7 +37,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Plus
+     * Test Plus.
      */
     @Test
     public void testPlus() {
@@ -49,7 +49,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Minus
+     * Test Minus.
      */
     @Test
     public void testMinus() {
@@ -61,7 +61,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Times
+     * Test Times.
      */
     @Test
     public void testTimes1() {
@@ -73,7 +73,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Times
+     * Test Times.
      */
     @Test
     public void testTimes2() {
@@ -85,7 +85,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Evaluate
+     * Test Evaluate.
      */
     @Test
     public void testEvaluate() {
@@ -97,7 +97,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Equals
+     * Test Equals.
      */
     @Test
     public void testEquals() {
@@ -113,7 +113,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Differentiate
+     * Test Differentiate.
      */
     @Test
     public void testDifferentiate1() {
@@ -125,7 +125,7 @@ public class PolynomialTest {
     }
 
     /**
-     * Test Differentiate
+     * Test Differentiate.
      */
     @Test
     public void testDifferentiate2() {

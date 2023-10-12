@@ -3,12 +3,12 @@ import java.util.Arrays;
 
 public class Polynomial {
     /**
-     * Local array
+     * Local array.
      */
     private final int[] coefficients;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public Polynomial(int[] coefficients) {
         this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
@@ -22,7 +22,7 @@ public class Polynomial {
     }
 
     /**
-     * Plus method
+     * Plus method.
      */
     public Polynomial plus(Polynomial second) {
         int max = Math.max(this.coefficients.length, second.coefficients.length);
@@ -38,7 +38,7 @@ public class Polynomial {
     }
 
     /**
-     * Minus method
+     * Minus method.
      */
     public Polynomial minus(Polynomial second) {
         int maxLength = Math.max(this.coefficients.length, second.coefficients.length);
@@ -54,7 +54,7 @@ public class Polynomial {
     }
 
     /**
-     * Times method
+     * Times method.
      */
     public Polynomial times(Polynomial second) {
         if (this.coefficients.length == 0 || second.coefficients.length == 0) {
@@ -73,7 +73,7 @@ public class Polynomial {
     }
 
     /**
-     * Evaluate
+     * Evaluate.
      */
     public int evaluate(int x) {
         int result = 0;
@@ -88,7 +88,7 @@ public class Polynomial {
     }
 
     /**
-     * Part of factorial after division
+     * Part of factorial after division.
      */
     private int partial_factorial(int first, int last) {
         int result = 1;
@@ -99,7 +99,7 @@ public class Polynomial {
     }
 
     /**
-     * Differentiate
+     * Differentiate.
      */
     public Polynomial differentiate(int degree) {
         if (degree >= coefficients.length) {
@@ -116,7 +116,7 @@ public class Polynomial {
     }
 
     /**
-     * Overrided equals method
+     * Overrided equals method.
      */
     @Override
     public boolean equals(Object obj) {
@@ -132,7 +132,7 @@ public class Polynomial {
     }
 
     /**
-     * Overrided toString method
+     * Overrided toString method.
      */
     @Override
     public String toString() {
