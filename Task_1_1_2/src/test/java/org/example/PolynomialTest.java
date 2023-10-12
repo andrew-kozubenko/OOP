@@ -1,10 +1,13 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Test;
+
 public class PolynomialTest {
+    /**
+     * Test ToString
+     */
     @Test
     public void testToString1() {
         Polynomial p1 = new Polynomial(new int[]{651, 245, 56, -9, 0, -1});
@@ -12,14 +15,9 @@ public class PolynomialTest {
         assertEquals("-x^5 - 9x^3 + 56x^2 + 245x + 651", p1.toString());
     }
 
-    @Test
-    public void testGetter() {
-        Polynomial polynomial = new Polynomial(new int[]{1, 2, 3});
-        int[] coefficients = polynomial.getCoefficients();
-
-        assertArrayEquals(new int[] {1, 2, 3}, coefficients);
-    }
-
+    /**
+     * Test ToString
+     */
     @Test
     public void testToString2() {
         Polynomial p1 = new Polynomial(new int[]{0});
@@ -27,6 +25,20 @@ public class PolynomialTest {
         assertEquals("0", p1.toString());
     }
 
+    /**
+     * Test Getter
+     */
+    @Test
+    public void testGetter() {
+        Polynomial polynomial = new Polynomial(new int[]{1, 2, 3});
+        int[] coefficients = polynomial.getCoefficients();
+
+        assertArrayEquals(new int[]{1, 2, 3}, coefficients);
+    }
+
+    /**
+     * Test Plus
+     */
     @Test
     public void testPlus() {
         Polynomial p1 = new Polynomial(new int[]{1, 2, 3, 190, 87});
@@ -36,6 +48,9 @@ public class PolynomialTest {
         assertEquals("4x^5 + 9x^4 + 279x^3 + 81x^2 + 5x + 3", result.toString());
     }
 
+    /**
+     * Test Minus
+     */
     @Test
     public void testMinus() {
         Polynomial p1 = new Polynomial(new int[]{1, 2, 3});
@@ -45,6 +60,9 @@ public class PolynomialTest {
         assertEquals("-x^2 - x - 1", result.toString());
     }
 
+    /**
+     * Test Times
+     */
     @Test
     public void testTimes1() {
         Polynomial p1 = new Polynomial(new int[]{1, 2, 3});
@@ -54,6 +72,9 @@ public class PolynomialTest {
         assertEquals("9x^3 + 12x^2 + 7x + 2", result.toString());
     }
 
+    /**
+     * Test Times
+     */
     @Test
     public void testTimes2() {
         Polynomial p1 = new Polynomial(new int[]{0, 0, 0});
@@ -63,6 +84,9 @@ public class PolynomialTest {
         assertEquals("0", result.toString());
     }
 
+    /**
+     * Test Evaluate
+     */
     @Test
     public void testEvaluate() {
         Polynomial poly = new Polynomial(new int[]{1, 2, 3}); // 1 + 2x + 3x^2
@@ -72,6 +96,9 @@ public class PolynomialTest {
         assertEquals(17, result);
     }
 
+    /**
+     * Test Equals
+     */
     @Test
     public void testEquals() {
         Polynomial poly1 = new Polynomial(new int[]{1, 2, 3, 6});
@@ -85,6 +112,9 @@ public class PolynomialTest {
         assertFalse(cond2);
     }
 
+    /**
+     * Test Differentiate
+     */
     @Test
     public void testDifferentiate1() {
         Polynomial poly = new Polynomial(new int[]{1, 2, 3});
@@ -94,6 +124,9 @@ public class PolynomialTest {
         assertEquals("6x + 2", result.toString());
     }
 
+    /**
+     * Test Differentiate
+     */
     @Test
     public void testDifferentiate2() {
         Polynomial poly = new Polynomial(new int[]{1, 2, 3});
