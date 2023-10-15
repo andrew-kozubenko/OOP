@@ -11,14 +11,19 @@ public class Polynomial {
      * Constructor.
      */
     public Polynomial(int[] coefficients) {
-        this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
+        if (coefficients.length == 0) {
+            this.coefficients = new int[] {0};
+        }
+        else {
+            this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
+        }
     }
 
     /**
      * Getter
      */
     public int[] getCoefficients() {
-        return coefficients;
+        return Arrays.copyOf(coefficients, coefficients.length);
     }
 
     /**
@@ -57,10 +62,6 @@ public class Polynomial {
      * Times method.
      */
     public Polynomial times(Polynomial second) {
-        if (this.coefficients.length == 0 || second.coefficients.length == 0) {
-            return new Polynomial(new int[0]);
-        }
-
         int[] res = new int[this.coefficients.length + second.coefficients.length - 1];
 
         for (int i = 0; i < this.coefficients.length; i++) {
@@ -136,7 +137,7 @@ public class Polynomial {
      */
     @Override
     public String toString() {
-        StringBuilder string = new StringBuilder();
+        var string = new StringBuilder();
 
         for (int i = coefficients.length - 1; i >= 0; i--) {
             int coefficient = coefficients[i];
@@ -173,7 +174,7 @@ public class Polynomial {
             }
         }
 
-        if (coefficients.length != 0 && string.length() == 0) {
+        if (string.length() == 0) {
             string.append("0");
         }
 

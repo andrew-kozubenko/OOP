@@ -20,7 +20,7 @@ public class PolynomialTest {
      */
     @Test
     public void testToString2() {
-        Polynomial p1 = new Polynomial(new int[]{0});
+        Polynomial p1 = new Polynomial(new int[]{});
 
         assertEquals("0", p1.toString());
     }
@@ -77,8 +77,8 @@ public class PolynomialTest {
      */
     @Test
     public void testTimes2() {
-        Polynomial p1 = new Polynomial(new int[]{0, 0, 0});
-        Polynomial p2 = new Polynomial(new int[]{0, 0, 0, 0, 0});
+        Polynomial p1 = new Polynomial(new int[]{});
+        Polynomial p2 = new Polynomial(new int[]{0});
         Polynomial result = p1.times(p2);
 
         assertEquals("0", result.toString());
@@ -104,12 +104,16 @@ public class PolynomialTest {
         Polynomial poly1 = new Polynomial(new int[]{1, 2, 3, 6});
         Polynomial poly2 = new Polynomial(new int[]{1, 2, 3, 6});
         Polynomial poly3 = new Polynomial(new int[]{1, 2, 3, 7});
+        Polynomial poly4 = new Polynomial(new int[]{0});
+        Polynomial poly5 = new Polynomial(new int[]{});
 
         boolean cond1 = poly1.equals(poly2);
         boolean cond2 = poly2.equals(poly3);
+        boolean cond3 = poly4.equals(poly5);
 
         assertTrue(cond1);
         assertFalse(cond2);
+        assertTrue(cond3);
     }
 
     /**
