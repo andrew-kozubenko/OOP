@@ -13,8 +13,7 @@ public class Polynomial {
     public Polynomial(int[] coefficients) {
         if (coefficients.length == 0) {
             this.coefficients = new int[] {0};
-        }
-        else {
+        } else {
             this.coefficients = Arrays.copyOf(coefficients, coefficients.length);
         }
     }
