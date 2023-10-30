@@ -153,7 +153,7 @@ public class Tree<T> {
 
     private void printTree(Tree.Node<T> node, String prefix, StringBuilder result) {
         if (node != null) {
-            if (!result.isEmpty()) {
+            if (result.length() != 0) {
                 result.append(prefix);
                 result.append("\\");
             } else {
