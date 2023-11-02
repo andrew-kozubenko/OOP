@@ -1,14 +1,17 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import java.util.function.Predicate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 
-
+/**
+ * Tree Test.
+ */
 public class TreeTest {
     /**
      * Test AddChild.
@@ -99,9 +102,9 @@ public class TreeTest {
         Tree<String> tree = new Tree<>("root");
         Tree<String> child1 = tree.addChild("child1");
         Tree<String> child2 = tree.addChild("child2");
-        Tree<String> child1_1 = child1.addChild("child1_1");
-        Tree<String> child1_2 = child1.addChild("child1_2");
-        Tree<String> child2_1 = child2.addChild("child2_1");
+        Tree<String> child3 = child1.addChild("child1_1");
+        Tree<String> child4 = child1.addChild("child1_2");
+        Tree<String> child5 = child2.addChild("child2_1");
 
         String expectedString = "root\n"
                                 + "│   \\child1\n"
@@ -117,16 +120,16 @@ public class TreeTest {
      * Test Search.
      */
     @Test
-    public void searchTest(){
+    public void searchTest() {
         Tree<String> tree1 = new Tree<>("so");
         Tree<String> child1 = tree1.addChild("so");
         Tree<String> child2 = tree1.addChild("Yes");
-        Tree<String> child1_1 = child1.addChild("so");
-        Tree<String> child1_2 = child1.addChild("Yes");
+        Tree<String> child3 = child1.addChild("so");
+        Tree<String> child4 = child1.addChild("Yes");
 
-        Predicate<String> eQ = n -> n.equals("Yes");
-        var equalYESNodes = tree1.search(eQ);
+        Predicate<String> eq = n -> n.equals("Yes");
+        var equalYesNodes = tree1.search(eq);
 
-        equalYESNodes.forEach(node -> assertEquals("Yes", node));
+        equalYesNodes.forEach(node -> assertEquals("Yes", node));
     }
 }

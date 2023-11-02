@@ -1,16 +1,18 @@
 package org.example;
 
-import com.sun.source.doctree.DeprecatedTree;
+import java.util.function.Predicate;
 
 import java.util.*;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import java.util.function.Predicate;
 
+/**
+ * Tree.
+ */
 public class Tree<T> {
     /**
-     * Tree's Node<T> data.
+     * Tree's Node data.
      */
     private Node<T> value;
 
@@ -24,7 +26,7 @@ public class Tree<T> {
     /**
      * Constructor.
      */
-    public Tree(T data){
+    public Tree(T data) {
         value = new Node<>(data);
     }
 
@@ -108,15 +110,15 @@ public class Tree<T> {
         /**
          * Getter.
          */
-        public T getNodeValue(){
+        public T getNodeValue() {
             return value;
         }
 
         /**
          * Constructor.
          */
-        public Node(T node_data) {
-            value = node_data;
+        public Node(T nodeData) {
+            value = nodeData;
             children = new ArrayList<>();
         }
 
@@ -170,7 +172,7 @@ public class Tree<T> {
         /**
          * Depth First iterator consructor.
          */
-        public DepthFirst (Node<T> value) {
+        public DepthFirst(Node<T> value) {
             stack.push(value);
         }
 
@@ -213,7 +215,7 @@ public class Tree<T> {
         /**
          * Breadth First iterator consructor.
          */
-        public BreadthFirst (Node<T> value) {
+        public BreadthFirst(Node<T> value) {
             queue.add(value);
         }
 
