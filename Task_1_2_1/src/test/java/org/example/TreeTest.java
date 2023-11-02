@@ -1,14 +1,18 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.function.Predicate;
+
 
 public class TreeTest {
-
+    /**
+     * Test AddChild.
+     */
     @Test
     public void testAddChild() {
         Tree<String> tree = new Tree<>("root");
@@ -26,6 +30,9 @@ public class TreeTest {
         assertEquals("child3", iterator.next());
     }
 
+    /**
+     * Test Equals.
+     */
     @Test
     public void testEquals() {
         Tree<String> tree1 = new Tree<>("root");
@@ -44,6 +51,9 @@ public class TreeTest {
         assertFalse(tree2.equals(tree3));
     }
 
+    /**
+     * Test Remove.
+     */
     @Test
     public void testRemove() {
         Tree<String> tree1 = new Tree<>("root");
@@ -58,6 +68,9 @@ public class TreeTest {
         assertTrue(tree1.equals(tree2));
     }
 
+    /**
+     * Test Iterator.
+     */
     @Test
     public void testIterator() {
         Tree<String> tree = new Tree<>("root");
@@ -78,6 +91,9 @@ public class TreeTest {
         assertFalse(iterator.hasNext());
     }
 
+    /**
+     * Test ToString.
+     */
     @Test
     public void testToString() {
         Tree<String> tree = new Tree<>("root");
@@ -87,19 +103,21 @@ public class TreeTest {
         Tree<String> child1_2 = child1.addChild("child1_2");
         Tree<String> child2_1 = child2.addChild("child2_1");
 
-        String expectedString =
-                "root\n" +
-                "│   \\child1\n" +
-                "│   │   \\child1_1\n" +
-                "│       \\child1_2\n" +
-                "    \\child2\n" +
-                "        \\child2_1\n";
+        String expectedString = "root\n"
+                                + "│   \\child1\n"
+                                + "│   │   \\child1_1\n"
+                                + "│       \\child1_2\n"
+                                + "    \\child2\n"
+                                + "        \\child2_1\n";
 
         assertEquals(expectedString, tree.toString());
     }
 
+    /**
+     * Test Search.
+     */
     @Test
-    public void seachTest(){
+    public void searchTest(){
         Tree<String> tree1 = new Tree<>("so");
         Tree<String> child1 = tree1.addChild("so");
         Tree<String> child2 = tree1.addChild("Yes");
