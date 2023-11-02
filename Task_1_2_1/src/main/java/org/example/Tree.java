@@ -24,15 +24,15 @@ public class Tree<T> {
     /**
      * Constructor.
      */
-    public Tree (T data){
-        value = new Node <> (data);
+    public Tree(T data){
+        value = new Node<>(data);
     }
 
     /**
      * Add child method.
      */
     public Tree<T> addChild(T data) {
-        Tree<T> child = new Tree<> (data);
+        Tree<T> child = new Tree<>(data);
         value.addChild(child.value);
         return child;
     }
@@ -115,7 +115,7 @@ public class Tree<T> {
         /**
          * Constructor.
          */
-        public Node (T node_data) {
+        public Node(T node_data) {
             value = node_data;
             children = new ArrayList<>();
         }
