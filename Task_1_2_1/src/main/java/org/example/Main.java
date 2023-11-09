@@ -16,11 +16,13 @@ public class Main {
         subtree.addChild("D");
         tree.addChild(subtree);
         b.remove();
-        b.remove();
         System.out.println(tree);
-        var treeIter = tree.iterator();
-        while (treeIter.hasNext()) {
-            System.out.println(treeIter.next());
+//        var treeIter = tree.iterator();
+//        while (treeIter.hasNext()) {
+//            System.out.println(treeIter.next());
+//        }
+        for (var i:tree) {
+            System.out.println(i);
         }
 
         Tree<Integer> tree1 = new Tree<>(1);

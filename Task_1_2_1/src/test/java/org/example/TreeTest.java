@@ -61,7 +61,7 @@ public class TreeTest {
     public void testRemove() {
         Tree<String> tree1 = new Tree<>("root");
         Tree<String> child1 = tree1.addChild("child1");
-        Tree<String> child2 = tree1.addChild("child2");
+        Tree<String> child2 = child1.addChild("child2");
 
         Tree<String> tree2 = new Tree<>("root");
         Tree<String> child3 = tree2.addChild("child2");
@@ -81,6 +81,29 @@ public class TreeTest {
         Tree<String> child2 = child1.addChild("child2");
 
         var iterator = tree.iterator();
+
+        assertTrue(iterator.hasNext());
+        assertEquals("root", iterator.next());
+
+        assertTrue(iterator.hasNext());
+        assertEquals("child1", iterator.next());
+
+        assertTrue(iterator.hasNext());
+        assertEquals("child2", iterator.next());
+
+        assertFalse(iterator.hasNext());
+    }
+
+    /**
+     * Test Depth First Iterator.
+     */
+    @Test
+    public void testDFIterator() {
+        Tree<String> tree = new Tree<>("root");
+        Tree<String> child1 = tree.addChild("child1");
+        Tree<String> child2 = child1.addChild("child2");
+
+        var iterator = tree.dfIterator();
 
         assertTrue(iterator.hasNext());
         assertEquals("root", iterator.next());
