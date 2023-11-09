@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Spliterator;
 import java.util.Spliterators;
 import java.util.function.Predicate;
-
-
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -14,7 +12,7 @@ import java.util.stream.StreamSupport;
 /**
  * Tree.
  */
-public class Tree<T> implements Iterable<T>{
+public class Tree<T> implements Iterable<T> {
     /**
      * Tree's Node data.
      */
@@ -64,11 +62,6 @@ public class Tree<T> implements Iterable<T>{
             value.getNodeParent().removeChild(value);
         }
     }
-//    public void remove() {
-//        if (value.getNodeParent() != null) {
-//            value.getNodeParent().removeChild(value);
-//        }
-//    }
 
     /**
      * Equals method.

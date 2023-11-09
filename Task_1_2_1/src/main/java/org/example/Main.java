@@ -6,6 +6,9 @@ import java.util.function.Predicate;
  * Main.
  */
 public class Main {
+    /**
+     * main.
+     */
     public static void main(String[] args) {
         Tree<String> tree = new Tree<>("R1");
         var a = tree.addChild("A");
@@ -17,11 +20,8 @@ public class Main {
         tree.addChild(subtree);
         b.remove();
         System.out.println(tree);
-//        var treeIter = tree.iterator();
-//        while (treeIter.hasNext()) {
-//            System.out.println(treeIter.next());
-//        }
-        for (var i:tree) {
+
+        for (var i : tree) {
             System.out.println(i);
         }
 

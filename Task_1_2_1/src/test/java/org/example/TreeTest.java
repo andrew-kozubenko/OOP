@@ -1,10 +1,10 @@
 package org.example;
 
-import java.util.function.Predicate;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
@@ -98,7 +98,7 @@ public class TreeTest {
      * Test Depth First Iterator.
      */
     @Test
-    public void testDFIterator() {
+    public void testDfIterator() {
         Tree<String> tree = new Tree<>("root");
         Tree<String> child1 = tree.addChild("child1");
         Tree<String> child2 = child1.addChild("child2");
