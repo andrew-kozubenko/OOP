@@ -4,7 +4,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class SubstringSearch {
     public static List<Integer> find(String fileName, String substring) {
@@ -15,22 +14,31 @@ public class SubstringSearch {
             InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
             BufferedReader br = new BufferedReader(isr)) {
             if (is != null) {
+                int blockSize = 1024;
+                char[] buffer = new char[blockSize];
+                int bytesRead;
 
-                String line;
                 int lineNumber = 0;
+                StringBuilder blockBuilder = new StringBuilder();
 
-                while ((line = br.readLine()) != null) {
-                    int index = line.indexOf(substring);
-                    System.out.println(line);
+                int take = 0;
+                while ((bytesRead = br.read(buffer, 0, blockSize)) != -1) {
+                    String block = new String(buffer, 0, bytesRead);
+                    blockBuilder.append(block);
+
+                    int index = blockBuilder.indexOf(substring);
                     while (index != -1) {
-                        result.add(index + lineNumber);
-                        index = line.indexOf(substring, index + 1);
-                        System.out.println(index);
+                        result.add(index + lineNumber - take);
+                        index = blockBuilder.indexOf(substring, index + 1);
                     }
-                    lineNumber += line.length() + 1;
+
+                    take = substring.length() - 1;
+                    blockBuilder.delete(0, blockBuilder.length() - take);
+
+                    lineNumber += bytesRead;
                 }
             } else {
-                System.out.println("Файл не найден: " + fileName);
+                System.out.println("File not found: " + fileName);
             }
         }  catch (IOException error) {
             error.printStackTrace();
