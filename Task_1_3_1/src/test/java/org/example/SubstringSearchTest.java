@@ -54,7 +54,7 @@ public class SubstringSearchTest {
         String fileName = "testFile.txt";
         String substring = "myString";
 
-        TestUtils.generateLargeFile(fileName, substring, 20 * 1024 * 1024);
+        TestUtils.generateLargeFile(fileName, substring, 20L * 1024 * 1024);
 
         List<Integer> result = SubstringSearch.find(fileName, substring);
 

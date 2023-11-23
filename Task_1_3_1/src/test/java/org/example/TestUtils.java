@@ -38,7 +38,7 @@ public class TestUtils {
     /**
      * generateLargeFile.
      */
-    public static void generateLargeFile(String fileName, String substring, int fileSizeInBytes) {
+    public static void generateLargeFile(String fileName, String substring, Long fileSizeInBytes) {
         URL resourceUrl = TestUtils.class.getClassLoader().getResource("");
 
         if (resourceUrl != null) {
@@ -46,15 +46,26 @@ public class TestUtils {
             System.out.println(resourcesPath);
 
             File file = new File(resourcesPath, fileName);
+            long  gigabyte = 1024 * 1024 * 1024;
+            long  gigs = fileSizeInBytes / gigabyte;
+            System.out.println(gigs);
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < fileSizeInBytes; i++) {
-                    sb.append("a");
-                }
-                sb.append(substring);
 
-                writer.write(sb.toString());
+                for (int i = 0; i < (gigs); i++) {
+                    StringBuilder sb = new StringBuilder();
+                    for (int j = 0; j < (fileSizeInBytes / gigs); j++) {
+                        sb.append("a");
+                    }
+                    writer.write(sb.toString());
+                }
+                StringBuilder sb1 = new StringBuilder();
+                for (int j = 0; j < fileSizeInBytes % gigabyte; j++) {
+                    sb1.append("a");
+                }
+                sb1.append(substring);
+
+                writer.write(sb1.toString());
             }  catch (IOException e) {
                 e.printStackTrace();
             }
