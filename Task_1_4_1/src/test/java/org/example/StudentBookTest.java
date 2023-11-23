@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StudentBookTest {
@@ -17,7 +18,7 @@ public class StudentBookTest {
         expected.add(4);
         expected.add(5);
 
-        assertTrue(expected.equals(studentRecordBook.getGrades()));
+        assertEquals(expected, studentRecordBook.getGrades());
     }
 
     @Test
@@ -30,6 +31,34 @@ public class StudentBookTest {
 
         double expected = 3.5;
 
-        assertTrue(expected == studentRecordBook.calculateAverageGrade());
+        assertEquals(expected, studentRecordBook.calculateAverageGrade());
+    }
+
+    @Test
+    public void testHasDiplomaWithHonors() {
+        StudentBook studentRecordBook = new StudentBook(5);
+        studentRecordBook.addGrade(5);
+        studentRecordBook.addGrade(5);
+
+        assertTrue(studentRecordBook.hasDiplomaWithHonors());
+    }
+
+    @Test
+    public void testIsEligibleForScholarship() {
+        StudentBook studentRecordBook = new StudentBook(5);
+        studentRecordBook.addGrade(4);
+        studentRecordBook.addGrade(5);
+
+        assertTrue(studentRecordBook.isEligibleForScholarship());
+    }
+
+    @Test
+    public void testAddInvalidGrade() {
+        StudentBook studentRecordBook = new StudentBook(5);
+        studentRecordBook.addGrade(1);
+
+        ArrayList<Integer> expected = new ArrayList<>();
+
+        assertEquals(expected, studentRecordBook.getGrades());
     }
 }
