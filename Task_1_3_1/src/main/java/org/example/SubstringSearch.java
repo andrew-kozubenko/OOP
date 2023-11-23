@@ -5,7 +5,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SubstringSearch.
+ */
 public class SubstringSearch {
+    /**
+     * find.
+     */
     public static List<Integer> find(String fileName, String substring) {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         List<Integer> result = new ArrayList<>();

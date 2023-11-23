@@ -6,7 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * SubstringSearchTest.
+ */
 public class SubstringSearchTest {
+    /**
+     * testSubstringSearch.
+     */
     @Test
     public void testSubstringSearch() {
         List<Integer> expectedResult = new ArrayList<>();
@@ -32,6 +38,26 @@ public class SubstringSearchTest {
         assertTrue(result.equals(expectedResult));
 
         // Удаление временного файла
+        TestUtils.deleteTestFile(fileName);
+    }
+
+    /**
+     * testLargeFile.
+     */
+    @Test
+    public void testLargeFile() {
+        List<Integer> expectedResult = new ArrayList<>();
+        expectedResult.add(20971520);
+
+        String fileName = "testFile.txt";
+        String substring = "myString";
+
+        TestUtils.generateLargeFile(fileName, substring, 20 * 1024 * 1024);
+
+        List<Integer> result = SubstringSearch.find(fileName, substring);
+
+        assertTrue(result.equals(expectedResult));
+
         TestUtils.deleteTestFile(fileName);
     }
 }
