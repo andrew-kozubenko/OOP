@@ -2,6 +2,7 @@ package org.example;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +17,14 @@ public class SubstringSearchTest {
      */
     @Test
     public void testSubstringSearch() {
-        List<Integer> expectedResult = new ArrayList<>();
+        List<Long> expectedResult = new ArrayList<>();
 
-        expectedResult.add(1);
-        expectedResult.add(8);
-        expectedResult.add(12);
-        expectedResult.add(19);
-        expectedResult.add(24);
-        expectedResult.add(31);
+        expectedResult.add(1L);
+        expectedResult.add(8L);
+        expectedResult.add(12L);
+        expectedResult.add(19L);
+        expectedResult.add(24L);
+        expectedResult.add(31L);
         // Создаем временный файл с тестовыми данными
         String fileName = "testFile.txt";
         String content = "abracadabra" +
@@ -34,7 +35,7 @@ public class SubstringSearchTest {
 
         // Проводим поиск в тестовом файле
         String substring = "bra";
-        List<Integer> result = SubstringSearch.find(fileName, substring);
+        List<Long> result = SubstringSearch.find(fileName, substring);
 
         // Проверяем результаты поиска
         assertTrue(result.equals(expectedResult));
@@ -48,15 +49,15 @@ public class SubstringSearchTest {
      */
     @Test
     public void testLargeFile() {
-        List<Integer> expectedResult = new ArrayList<>();
-        expectedResult.add(20971520);
+        List<Long> expectedResult = new ArrayList<>();
+        expectedResult.add(20971520L);
 
         String fileName = "testFile.txt";
         String substring = "myString";
 
         TestUtils.generateLargeFile(fileName, substring, 20L * 1024 * 1024);
 
-        List<Integer> result = SubstringSearch.find(fileName, substring);
+        List<Long> result = SubstringSearch.find(fileName, substring);
 
         assertTrue(result.equals(expectedResult));
 

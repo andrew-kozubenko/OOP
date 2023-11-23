@@ -52,15 +52,15 @@ public class TestUtils {
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
 
-                for (int i = 0; i < (gigs); i++) {
+                for (long i = 0; i < (gigs) * 1024; i++) {
                     StringBuilder sb = new StringBuilder();
-                    for (int j = 0; j < (fileSizeInBytes / gigs); j++) {
+                    for (long j = 0; j < (fileSizeInBytes / gigs) / 1024; j++) {
                         sb.append("a");
                     }
                     writer.write(sb.toString());
                 }
                 StringBuilder sb1 = new StringBuilder();
-                for (int j = 0; j < fileSizeInBytes % gigabyte; j++) {
+                for (long j = 0; j < fileSizeInBytes % gigabyte; j++) {
                     sb1.append("a");
                 }
                 sb1.append(substring);

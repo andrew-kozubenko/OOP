@@ -2,6 +2,7 @@ package org.example;
 
 import static org.example.SubstringSearch.find;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
@@ -13,12 +14,11 @@ public class Main {
      */
     public static void main(String[] args) {
         String fileName = "input.txt";
-        String substring = "bra";
+        String s = "бра";
+        byte[] b = s.getBytes();
+        String substring = new String(b, StandardCharsets.UTF_8);
 
-        List<Integer> result = find(fileName, substring);
+        List<Long> result = find(fileName, substring);
         System.out.println(result);
-
-        String fileName1 = "large_file.txt";
-        String substring1 = "targetSubstring";
     }
 }

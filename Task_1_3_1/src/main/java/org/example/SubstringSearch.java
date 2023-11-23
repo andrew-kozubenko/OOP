@@ -12,19 +12,19 @@ public class SubstringSearch {
     /**
      * find.
      */
-    public static List<Integer> find(String fileName, String substring) {
+    public static List<Long> find(String fileName, String substring) {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-        List<Integer> result = new ArrayList<>();
+        List<Long> result = new ArrayList<>();
 
         try (InputStream is = classLoader.getResourceAsStream(fileName);
-            InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
-            BufferedReader br = new BufferedReader(isr)) {
+             InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
+             BufferedReader br = new BufferedReader(isr)) {
             if (is != null) {
                 int blockSize = 1024;
                 char[] buffer = new char[blockSize];
                 int bytesRead;
 
-                int lineNumber = 0;
+                long lineNumber = 0;
                 StringBuilder blockBuilder = new StringBuilder();
 
                 int take = 0;
