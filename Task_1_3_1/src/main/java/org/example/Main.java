@@ -1,8 +1,8 @@
 package org.example;
 
-import java.util.List;
-
 import static org.example.SubstringSearch.find;
+
+import java.util.List;
 
 /**
  * Main.

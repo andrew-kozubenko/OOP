@@ -1,10 +1,11 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * SubstringSearchTest.
@@ -25,7 +26,8 @@ public class SubstringSearchTest {
         expectedResult.add(31);
         // Создаем временный файл с тестовыми данными
         String fileName = "testFile.txt";
-        String content = "abracadabra" + "abracadabra\n" +
+        String content = "abracadabra" +
+                "abracadabra\n" +
                 "abracadabra";
 
         TestUtils.createTestFile(fileName, content);

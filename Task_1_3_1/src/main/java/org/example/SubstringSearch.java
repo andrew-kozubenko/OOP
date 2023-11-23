@@ -16,7 +16,7 @@ public class SubstringSearch {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         List<Integer> result = new ArrayList<>();
 
-        try(InputStream is = classLoader.getResourceAsStream(fileName);
+        try (InputStream is = classLoader.getResourceAsStream(fileName);
             InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
             BufferedReader br = new BufferedReader(isr)) {
             if (is != null) {
