@@ -1,6 +1,12 @@
 package org.example;
 
+/**
+ * Main.
+ */
 public class Main {
+    /**
+     * main.
+     */
     public static void main(String[] args) {
         StudentBook studentRecordBook = new StudentBook(5);
 

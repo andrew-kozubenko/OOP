@@ -1,13 +1,18 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * StudentBookTest.
+ */
 public class StudentBookTest {
+    /**
+     * testAddGrade.
+     */
     @Test
     public void testAddGrade() {
         StudentBook studentRecordBook = new StudentBook(5);
@@ -21,6 +26,9 @@ public class StudentBookTest {
         assertEquals(expected, studentRecordBook.getGrades());
     }
 
+    /**
+     * testCalculateAverageGrade.
+     */
     @Test
     public void testCalculateAverageGrade() {
         StudentBook studentRecordBook = new StudentBook(5);
@@ -34,6 +42,9 @@ public class StudentBookTest {
         assertEquals(expected, studentRecordBook.calculateAverageGrade());
     }
 
+    /**
+     * testHasDiplomaWithHonors.
+     */
     @Test
     public void testHasDiplomaWithHonors() {
         StudentBook studentRecordBook = new StudentBook(5);
@@ -43,6 +54,9 @@ public class StudentBookTest {
         assertTrue(studentRecordBook.hasDiplomaWithHonors());
     }
 
+    /**
+     * testIsEligibleForScholarship.
+     */
     @Test
     public void testIsEligibleForScholarship() {
         StudentBook studentRecordBook = new StudentBook(5);
@@ -52,6 +66,9 @@ public class StudentBookTest {
         assertTrue(studentRecordBook.isEligibleForScholarship());
     }
 
+    /**
+     * testAddInvalidGrade.
+     */
     @Test
     public void testAddInvalidGrade() {
         StudentBook studentRecordBook = new StudentBook(5);

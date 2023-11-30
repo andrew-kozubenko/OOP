@@ -1,43 +1,68 @@
 package org.example;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
+/**
+ * StudentBook.
+ */
 public class StudentBook {
     private ArrayList<Integer> grades;
     private int qualificationWork;
     private boolean hasDiplomaWithHonors;
     private boolean isEligibleForScholarship;
 
+    /**
+     * getGrades.
+     */
     public ArrayList<Integer> getGrades() {
         return new ArrayList<>(grades);
     }
 
+    /**
+     * setGrades.
+     */
     public void setGrades(ArrayList<Integer> grades) {
         this.grades = new ArrayList<>(grades);
     }
 
+    /**
+     * getQualificationWork.
+     */
     public int getQualificationWork() {
         return qualificationWork;
     }
 
+    /**
+     * setQualificationWork.
+     */
     public void setQualificationWork(int qualificationWork) {
         this.qualificationWork = qualificationWork;
     }
 
+    /**
+     * isHasDiplomaWithHonors.
+     */
     public boolean isHasDiplomaWithHonors() {
         return hasDiplomaWithHonors;
     }
 
+    /**
+     * setHasDiplomaWithHonors.
+     */
     public void setHasDiplomaWithHonors(boolean hasDiplomaWithHonors) {
         this.hasDiplomaWithHonors = hasDiplomaWithHonors;
     }
 
+    /**
+     * setEligibleForScholarship.
+     */
     public void setEligibleForScholarship(boolean eligibleForScholarship) {
         isEligibleForScholarship = eligibleForScholarship;
     }
 
+    /**
+     * StudentBook.
+     */
     public StudentBook(int qualificationWork) {
         this.grades = new ArrayList<>();
         this.hasDiplomaWithHonors = false;
@@ -50,6 +75,9 @@ public class StudentBook {
 
     }
 
+    /**
+     * addGrade.
+     */
     public void addGrade(int grade) {
         if (grade >= 2 && grade <= 5) { // Предполагается, что допустимые оценки - от 2 до 5
             grades.add(grade);
@@ -60,6 +88,9 @@ public class StudentBook {
         }
     }
 
+    /**
+     * calculateAverageGrade.
+     */
     public double calculateAverageGrade() {
         if (grades.isEmpty()) {
             return 0.0;
@@ -73,6 +104,9 @@ public class StudentBook {
         return sum / grades.size();
     }
 
+    /**
+     * updateDiplomaWithHonors.
+     */
     private void updateDiplomaWithHonors() {
         int lastGrade = grades.isEmpty() ? 0 : grades.get(grades.size() - 1);
 
@@ -87,6 +121,9 @@ public class StudentBook {
         }
     }
 
+    /**
+     * updateScholarshipEligibility.
+     */
     private void updateScholarshipEligibility() {
         int lastGrade = grades.isEmpty() ? 0 : grades.get(grades.size() - 1);
 
@@ -97,10 +134,16 @@ public class StudentBook {
         }
     }
 
+    /**
+     * hasDiplomaWithHonors.
+     */
     public boolean hasDiplomaWithHonors() {
         return hasDiplomaWithHonors;
     }
 
+    /**
+     * isEligibleForScholarship.
+     */
     public boolean isEligibleForScholarship() {
         return isEligibleForScholarship;
     }
