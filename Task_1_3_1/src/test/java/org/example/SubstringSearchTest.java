@@ -27,14 +27,90 @@ public class SubstringSearchTest {
         expectedResult.add(31L);
         // Создаем временный файл с тестовыми данными
         String fileName = "testFile.txt";
-        String content = "abracadabra" +
+        String с = "abracadabra" +
                 "abracadabra\n" +
                 "abracadabra";
+        byte[] b = с.getBytes();
+        String content = new String(b, StandardCharsets.UTF_8);
 
         TestUtils.createTestFile(fileName, content);
 
         // Проводим поиск в тестовом файле
-        String substring = "bra";
+        String s = "bra";
+        byte[] b1 = s.getBytes();
+        String substring = new String(b1, StandardCharsets.UTF_8);
+        List<Long> result = SubstringSearch.find(fileName, substring);
+
+        // Проверяем результаты поиска
+        assertTrue(result.equals(expectedResult));
+
+        // Удаление временного файла
+        TestUtils.deleteTestFile(fileName);
+    }
+
+    /**
+     * testSubstringSearch.
+     */
+    @Test
+    public void testSubstringSearchRus() {
+        List<Long> expectedResult = new ArrayList<>();
+
+        expectedResult.add(1L);
+        expectedResult.add(8L);
+        expectedResult.add(12L);
+        expectedResult.add(19L);
+        expectedResult.add(24L);
+        expectedResult.add(31L);
+        // Создаем временный файл с тестовыми данными
+        String fileName = "testFile.txt";
+        String с = "абракадабра" +
+                "абракадабра\n" +
+                "абракадабра";
+        byte[] b = с.getBytes();
+        String content = new String(b, StandardCharsets.UTF_8);
+
+        TestUtils.createTestFile(fileName, content);
+
+        // Проводим поиск в тестовом файле
+        String s = "бра";
+        byte[] b1 = s.getBytes();
+        String substring = new String(b1, StandardCharsets.UTF_8);
+        List<Long> result = SubstringSearch.find(fileName, substring);
+
+        // Проверяем результаты поиска
+        assertTrue(result.equals(expectedResult));
+
+        // Удаление временного файла
+        TestUtils.deleteTestFile(fileName);
+    }
+
+    /**
+     * testSubstringSearch.
+     */
+    @Test
+    public void testSubstringSearchJap() {
+        List<Long> expectedResult = new ArrayList<>();
+
+        expectedResult.add(1L);
+        expectedResult.add(5L);
+        expectedResult.add(8L);
+        expectedResult.add(12L);
+        expectedResult.add(16L);
+        expectedResult.add(20L);
+        // Создаем временный файл с тестовыми данными
+        String fileName = "testFile.txt";
+        String с = "アブラカダブラ" +
+                "アブラカダブラ\n" +
+                "アブラカダブラ";
+        byte[] b = с.getBytes();
+        String content = new String(b, StandardCharsets.UTF_8);
+
+        TestUtils.createTestFile(fileName, content);
+
+        // Проводим поиск в тестовом файле
+        String s = "ブラ";
+        byte[] b1 = s.getBytes();
+        String substring = new String(b1, StandardCharsets.UTF_8);
         List<Long> result = SubstringSearch.find(fileName, substring);
 
         // Проверяем результаты поиска

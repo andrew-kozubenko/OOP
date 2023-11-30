@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 /**
  * TestUtils.
@@ -25,7 +26,7 @@ public class TestUtils {
             // Создаем файл в директории resources
             File file = new File(resourcesPath, fileName);
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8))) {
                 writer.write(content);
             } catch (IOException e) {
                 e.printStackTrace();
