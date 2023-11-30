@@ -27,10 +27,10 @@ public class SubstringSearchTest {
         expectedResult.add(31L);
         // Создаем временный файл с тестовыми данными
         String fileName = "testFile.txt";
-        String с = "abracadabra" +
-                "abracadabra\n" +
-                "abracadabra";
-        byte[] b = с.getBytes();
+        String сon = "abracadabra"
+                + "abracadabra\n"
+                + "abracadabra";
+        byte[] b = сon.getBytes();
         String content = new String(b, StandardCharsets.UTF_8);
 
         TestUtils.createTestFile(fileName, content);
@@ -63,10 +63,10 @@ public class SubstringSearchTest {
         expectedResult.add(31L);
         // Создаем временный файл с тестовыми данными
         String fileName = "testFile.txt";
-        String с = "абракадабра" +
-                "абракадабра\n" +
-                "абракадабра";
-        byte[] b = с.getBytes();
+        String con = "абракадабра"
+                + "абракадабра\n"
+                + "абракадабра";
+        byte[] b = con.getBytes();
         String content = new String(b, StandardCharsets.UTF_8);
 
         TestUtils.createTestFile(fileName, content);
@@ -99,10 +99,10 @@ public class SubstringSearchTest {
         expectedResult.add(20L);
         // Создаем временный файл с тестовыми данными
         String fileName = "testFile.txt";
-        String с = "アブラカダブラ" +
-                "アブラカダブラ\n" +
-                "アブラカダブラ";
-        byte[] b = с.getBytes();
+        String сon = "アブラカダブラ"
+                + "アブラカダブラ\n"
+                + "アブラカダブラ";
+        byte[] b = сon.getBytes();
         String content = new String(b, StandardCharsets.UTF_8);
 
         TestUtils.createTestFile(fileName, content);
