@@ -1,28 +1,22 @@
 package org.example;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * StudentBook.
  */
 public class StudentBook {
-    private ArrayList<Integer> grades;
+    private Map<Integer, List<Integer>> gradesBySemester;
     private int qualificationWork;
+    private int lastSemester;
     private boolean hasDiplomaWithHonors;
     private boolean isEligibleForScholarship;
 
     /**
      * getGrades.
      */
-    public ArrayList<Integer> getGrades() {
-        return new ArrayList<>(grades);
-    }
-
-    /**
-     * setGrades.
-     */
-    public void setGrades(ArrayList<Integer> grades) {
-        this.grades = new ArrayList<>(grades);
+    public List<Integer> getSemesterGrades(int semester) {
+        return gradesBySemester.get(semester);
     }
 
     /**
@@ -36,85 +30,88 @@ public class StudentBook {
      * setQualificationWork.
      */
     public void setQualificationWork(int qualificationWork) {
-        this.qualificationWork = qualificationWork;
-    }
-
-    /**
-     * isHasDiplomaWithHonors.
-     */
-    public boolean isHasDiplomaWithHonors() {
-        return hasDiplomaWithHonors;
-    }
-
-    /**
-     * setHasDiplomaWithHonors.
-     */
-    public void setHasDiplomaWithHonors(boolean hasDiplomaWithHonors) {
-        this.hasDiplomaWithHonors = hasDiplomaWithHonors;
-    }
-
-    /**
-     * setEligibleForScholarship.
-     */
-    public void setEligibleForScholarship(boolean eligibleForScholarship) {
-        isEligibleForScholarship = eligibleForScholarship;
-    }
-
-    /**
-     * StudentBook.
-     */
-    public StudentBook(int qualificationWork) {
-        this.grades = new ArrayList<>();
-        this.hasDiplomaWithHonors = false;
-        this.isEligibleForScholarship = false;
-        if (qualificationWork >= 2 && qualificationWork <= 5) {
+        if (qualificationWork >= 3 && qualificationWork <= 5) {
             this.qualificationWork = qualificationWork;
-        } else {
-            throw new IllegalArgumentException("Invalid qualification work grade");
-        }
-
-    }
-
-    /**
-     * addGrade.
-     */
-    public void addGrade(int grade) {
-        if (grade >= 2 && grade <= 5) { // Предполагается, что допустимые оценки - от 2 до 5
-            grades.add(grade);
-            updateDiplomaWithHonors();
-            updateScholarshipEligibility();
         } else {
             System.out.println("Оценка должна быть от 2 до 5.");
         }
     }
 
     /**
+     * StudentBook.
+     */
+    public StudentBook() {
+        this.gradesBySemester = new HashMap<>();
+        this.hasDiplomaWithHonors = false;
+        this.isEligibleForScholarship = false;
+        this.qualificationWork = 0;
+        this.lastSemester = 0;
+    }
+
+    /**
+     * addGrade.
+     */
+    public void addGrade(int semester, int subjectIndex, int grade) {
+        if (grade < 3 || grade > 5) {
+            System.out.println("Оценка должна быть от 2 до 5.");
+            return;
+        } else if (semester < 1 || semester > 8) {
+            System.out.println("Номер семестра должен быть от 2 до 5.");
+        }
+
+        gradesBySemester.computeIfAbsent(semester, k -> new ArrayList<>());
+        gradesBySemester.get(semester).add(grade);
+
+        lastSemester = Math.max(lastSemester, semester);
+    }
+
+    /**
      * calculateAverageGrade.
      */
     public double calculateAverageGrade() {
-        if (grades.isEmpty()) {
-            return 0.0;
-        }
-
         double sum = 0;
-        for (int grade : grades) {
-            sum += grade;
+        int count = 0;
+
+        for (List<Integer> grades : gradesBySemester.values()) {
+            for (int grade : grades) {
+                sum += grade;
+                count++;
+            }
         }
 
-        return sum / grades.size();
+        return count > 0 ? sum / count : 0.0;
+    }
+
+    /**
+     * hasDiplomaWithHonors.
+     */
+    public boolean hasDiplomaWithHonors() {
+        updateDiplomaWithHonors();
+        return hasDiplomaWithHonors;
+    }
+
+    /**
+     * isEligibleForScholarship.
+     */
+    public boolean isEligibleForScholarship() {
+        updateScholarshipEligibility();
+        return isEligibleForScholarship;
     }
 
     /**
      * updateDiplomaWithHonors.
      */
     private void updateDiplomaWithHonors() {
-        int lastGrade = grades.isEmpty() ? 0 : grades.get(grades.size() - 1);
+        List<Integer> lastSemesterGrades = gradesBySemester.get(lastSemester);
+        if (lastSemesterGrades == null || lastSemesterGrades.isEmpty()) {
+            hasDiplomaWithHonors = false;
+            return;
+        }
 
-        long excellentCount = grades.stream().filter(grade -> grade == 5).count();
-        long satisfactoryCount = grades.stream().filter(grade -> grade == 3).count();
+        long excellentCount = lastSemesterGrades.stream().filter(grade -> grade == 5).count();
+        long satisfactoryCount = lastSemesterGrades.stream().filter(grade -> grade == 3).count();
 
-        if (lastGrade == 5 && excellentCount >= 0.75 * grades.size() &&
-                satisfactoryCount == 0 && qualificationWork == 5) {
+        if (excellentCount >= 0.75 * lastSemesterGrades.size() && satisfactoryCount == 0 && qualificationWork == 5) {
             hasDiplomaWithHonors = true;
         } else {
             hasDiplomaWithHonors = false;
@@ -125,26 +122,18 @@ public class StudentBook {
      * updateScholarshipEligibility.
      */
     private void updateScholarshipEligibility() {
-        int lastGrade = grades.isEmpty() ? 0 : grades.get(grades.size() - 1);
+        List<Integer> lastSemesterGrades = gradesBySemester.get(lastSemester);
+        if (lastSemesterGrades == null || lastSemesterGrades.isEmpty()) {
+            isEligibleForScholarship = false;
+            return;
+        }
 
-        if (lastGrade == 5) {
+        long excellentCount = lastSemesterGrades.stream().filter(grade -> grade == 5).count();
+
+        if ((double) excellentCount / lastSemesterGrades.size() == 1) {
             isEligibleForScholarship = true;
         } else {
             isEligibleForScholarship = false;
         }
-    }
-
-    /**
-     * hasDiplomaWithHonors.
-     */
-    public boolean hasDiplomaWithHonors() {
-        return hasDiplomaWithHonors;
-    }
-
-    /**
-     * isEligibleForScholarship.
-     */
-    public boolean isEligibleForScholarship() {
-        return isEligibleForScholarship;
     }
 }
