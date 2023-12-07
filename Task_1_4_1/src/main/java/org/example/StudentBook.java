@@ -111,7 +111,8 @@ public class StudentBook {
         long excellentCount = lastSemesterGrades.stream().filter(grade -> grade == 5).count();
         long satisfactoryCount = lastSemesterGrades.stream().filter(grade -> grade == 3).count();
 
-        if (excellentCount >= 0.75 * lastSemesterGrades.size() && satisfactoryCount == 0 && qualificationWork == 5) {
+        if (excellentCount >= 0.75 * lastSemesterGrades.size()
+                && satisfactoryCount == 0 && qualificationWork == 5) {
             hasDiplomaWithHonors = true;
         } else {
             hasDiplomaWithHonors = false;

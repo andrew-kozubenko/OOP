@@ -1,10 +1,10 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
 
 /**
  * StudentBookTest.
@@ -16,11 +16,11 @@ public class StudentBookTest {
     @Test
     public void testAddGrade() {
         StudentBook studentRecordBook = new StudentBook();
-        studentRecordBook.addGrade(1,1, 4);
+        studentRecordBook.addGrade(1, 1, 4);
         studentRecordBook.addGrade(1, 2, 5);
-        studentRecordBook.addGrade(2,1, 4);
+        studentRecordBook.addGrade(2, 1, 4);
         studentRecordBook.addGrade(2, 2, 5);
-        studentRecordBook.addGrade(3,1, 4);
+        studentRecordBook.addGrade(3, 1, 4);
         studentRecordBook.addGrade(3, 3, 5);
 
         ArrayList<Integer> expected1 = new ArrayList<>();
@@ -46,9 +46,9 @@ public class StudentBookTest {
     @Test
     public void testCalculateAverageGrade() {
         StudentBook studentRecordBook = new StudentBook();
-        studentRecordBook.addGrade(1,1, 3);
+        studentRecordBook.addGrade(1, 1, 3);
         studentRecordBook.addGrade(1, 2, 3);
-        studentRecordBook.addGrade(2,1, 4);
+        studentRecordBook.addGrade(2, 1, 4);
         studentRecordBook.addGrade(2, 2, 5);
 
         double expected = 3.75;
@@ -62,9 +62,9 @@ public class StudentBookTest {
     @Test
     public void testHasDiplomaWithHonors() {
         StudentBook studentRecordBook = new StudentBook();
-        studentRecordBook.addGrade(1,1, 5);
+        studentRecordBook.addGrade(1, 1, 5);
         studentRecordBook.addGrade(1, 2, 5);
-        studentRecordBook.addGrade(2,1, 4);
+        studentRecordBook.addGrade(2, 1, 4);
         studentRecordBook.addGrade(2, 2, 4);
         studentRecordBook.addGrade(3, 2, 5);
         studentRecordBook.addGrade(4, 2, 5);
@@ -79,9 +79,9 @@ public class StudentBookTest {
     @Test
     public void testIsEligibleForScholarship() {
         StudentBook studentRecordBook = new StudentBook();
-        studentRecordBook.addGrade(1,1, 3);
+        studentRecordBook.addGrade(1, 1, 3);
         studentRecordBook.addGrade(1, 2, 3);
-        studentRecordBook.addGrade(4,1, 5);
+        studentRecordBook.addGrade(4, 1, 5);
         studentRecordBook.addGrade(4, 2, 5);
         studentRecordBook.addGrade(4, 2, 5);
         studentRecordBook.addGrade(4, 2, 5);
