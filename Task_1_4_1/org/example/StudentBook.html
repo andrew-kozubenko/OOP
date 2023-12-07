@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,7 +153,7 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int)">StudentBook</a></span>&#8203;(int&nbsp;qualificationWork)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">StudentBook</a></span>()</code></th>
 <td class="colLast">
 <div class="block">StudentBook.</div>
 </td>
@@ -178,7 +178,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addGrade(int)">addGrade</a></span>&#8203;(int&nbsp;grade)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addGrade(int,int,int)">addGrade</a></span>&#8203;(int&nbsp;semester,
+        int&nbsp;subjectIndex,
+        int&nbsp;grade)</code></th>
 <td class="colLast">
 <div class="block">addGrade.</div>
 </td>
@@ -191,17 +193,17 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;java.lang.Integer&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGrades()">getGrades</a></span>()</code></th>
-<td class="colLast">
-<div class="block">getGrades.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getQualificationWork()">getQualificationWork</a></span>()</code></th>
 <td class="colLast">
 <div class="block">getQualificationWork.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSemesterGrades(int)">getSemesterGrades</a></span>&#8203;(int&nbsp;semester)</code></th>
+<td class="colLast">
+<div class="block">getGrades.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -219,34 +221,6 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isHasDiplomaWithHonors()">isHasDiplomaWithHonors</a></span>()</code></th>
-<td class="colLast">
-<div class="block">isHasDiplomaWithHonors.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEligibleForScholarship(boolean)">setEligibleForScholarship</a></span>&#8203;(boolean&nbsp;eligibleForScholarship)</code></th>
-<td class="colLast">
-<div class="block">setEligibleForScholarship.</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGrades(java.util.ArrayList)">setGrades</a></span>&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;grades)</code></th>
-<td class="colLast">
-<div class="block">setGrades.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setHasDiplomaWithHonors(boolean)">setHasDiplomaWithHonors</a></span>&#8203;(boolean&nbsp;hasDiplomaWithHonors)</code></th>
-<td class="colLast">
-<div class="block">setHasDiplomaWithHonors.</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setQualificationWork(int)">setQualificationWork</a></span>&#8203;(int&nbsp;qualificationWork)</code></th>
 <td class="colLast">
@@ -277,13 +251,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(int)">
+<a id="&lt;init&gt;()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>StudentBook</h4>
-<pre>public&nbsp;StudentBook&#8203;(int&nbsp;qualificationWork)</pre>
+<pre>public&nbsp;StudentBook()</pre>
 <div class="block">StudentBook.</div>
 </li>
 </ul>
@@ -297,24 +271,14 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="getGrades()">
+<a id="getSemesterGrades(int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getGrades</h4>
-<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;getGrades()</pre>
+<h4>getSemesterGrades</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;java.lang.Integer&gt;&nbsp;getSemesterGrades&#8203;(int&nbsp;semester)</pre>
 <div class="block">getGrades.</div>
-</li>
-</ul>
-<a id="setGrades(java.util.ArrayList)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setGrades</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setGrades&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;grades)</pre>
-<div class="block">setGrades.</div>
 </li>
 </ul>
 <a id="getQualificationWork()">
@@ -337,43 +301,15 @@ extends java.lang.Object</pre>
 <div class="block">setQualificationWork.</div>
 </li>
 </ul>
-<a id="isHasDiplomaWithHonors()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isHasDiplomaWithHonors</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;isHasDiplomaWithHonors()</pre>
-<div class="block">isHasDiplomaWithHonors.</div>
-</li>
-</ul>
-<a id="setHasDiplomaWithHonors(boolean)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setHasDiplomaWithHonors</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setHasDiplomaWithHonors&#8203;(boolean&nbsp;hasDiplomaWithHonors)</pre>
-<div class="block">setHasDiplomaWithHonors.</div>
-</li>
-</ul>
-<a id="setEligibleForScholarship(boolean)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setEligibleForScholarship</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setEligibleForScholarship&#8203;(boolean&nbsp;eligibleForScholarship)</pre>
-<div class="block">setEligibleForScholarship.</div>
-</li>
-</ul>
-<a id="addGrade(int)">
+<a id="addGrade(int,int,int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addGrade</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;addGrade&#8203;(int&nbsp;grade)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;addGrade&#8203;(int&nbsp;semester,
+                     int&nbsp;subjectIndex,
+                     int&nbsp;grade)</pre>
 <div class="block">addGrade.</div>
 </li>
 </ul>
