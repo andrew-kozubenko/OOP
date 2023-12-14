@@ -8,15 +8,19 @@ public class Main {
      * main.
      */
     public static void main(String[] args) {
-        StudentBook studentRecordBook = new StudentBook();
+        StudentBook studentBook = new StudentBook();
 
-        studentRecordBook.addGrade(1, 1, 5);
-        studentRecordBook.addGrade(1, 2, 4);
-        studentRecordBook.addGrade(1, 3, 4);
-        studentRecordBook.addGrade(1, 4, 5);
+        studentBook.addGrade(1, "Digital platforms", 5);
+        studentBook.addGrade(1, "Beans beating", 5);
+        studentBook.addGrade(1, "Some math", 3);
+        studentBook.addGrade(2, "Some math", 5);
+        studentBook.addGrade(2, "Beans beating", 4);
+        studentBook.addGrade(2, "Some frogging", 5);
+        studentBook.addGrade(2, "Roof running", 5);
+        studentBook.setQualificationWork(5);
 
-        System.out.println("Средний балл: " + studentRecordBook.calculateAverageGrade());
-        System.out.println("Диплом с отличием: " + studentRecordBook.hasDiplomaWithHonors());
-        System.out.println("Повышенная стипендия: " + studentRecordBook.isEligibleForScholarship());
+        System.out.println("Средний балл: " + studentBook.calculateAverageGrade());
+        System.out.println("Диплом с отличием: " + studentBook.hasDiplomaWithHonors());
+        System.out.println("Повышенная стипендия: " + studentBook.isEligibleForScholarship());
     }
 }

@@ -6,63 +6,71 @@ import java.util.*;
  * StudentBook.
  */
 public class StudentBook {
-    private Map<Integer, List<Integer>> gradesBySemester;
-    private int qualificationWork;
-    private int lastSemester;
+    private List<Semester> semesters;
+    private Integer lastSemester;
+    private Integer qualificationWork;
     private boolean hasDiplomaWithHonors;
     private boolean isEligibleForScholarship;
+    private List<Subject> allSubjectsWithLastGrades;
 
     /**
-     * getGrades.
+     * getAllSubjectsWithLastGrades.
      */
-    public List<Integer> getSemesterGrades(int semester) {
-        return gradesBySemester.get(semester);
-    }
-
-    /**
-     * getQualificationWork.
-     */
-    public int getQualificationWork() {
-        return qualificationWork;
-    }
-
-    /**
-     * setQualificationWork.
-     */
-    public void setQualificationWork(int qualificationWork) {
-        if (qualificationWork >= 3 && qualificationWork <= 5) {
-            this.qualificationWork = qualificationWork;
-        } else {
-            System.out.println("Оценка должна быть от 2 до 5.");
-        }
+    public List<Subject> getAllSubjectsWithLastGrades() {
+        return allSubjectsWithLastGrades;
     }
 
     /**
      * StudentBook.
      */
     public StudentBook() {
-        this.gradesBySemester = new HashMap<>();
-        this.hasDiplomaWithHonors = false;
-        this.isEligibleForScholarship = false;
+        this.semesters = new ArrayList<>();
         this.qualificationWork = 0;
-        this.lastSemester = 0;
+        this.lastSemester = 1;
+        allSubjectsWithLastGrades = new ArrayList<>();
+        initializeSemesters();
+    }
+
+    /**
+     * initializeSemesters.
+     */
+    private void initializeSemesters() {
+        for (int i = 1; i <= 8; i++) {
+            Semester semester = new Semester(i);
+            semesters.add(semester);
+        }
     }
 
     /**
      * addGrade.
      */
-    public void addGrade(int semester, int subjectIndex, int grade) {
-        if (grade < 3 || grade > 5) {
-            System.out.println("Оценка должна быть от 2 до 5.");
-            return;
-        } else if (semester < 1 || semester > 8) {
-            System.out.println("Номер семестра должен быть от 2 до 5.");
+    public void addGrade(Integer semesterNumber, String subjectName, Integer grade) {
+        if (semesterNumber < 1 || semesterNumber > 8) {
+            throw new IllegalArgumentException();
         }
 
-        gradesBySemester.computeIfAbsent(semester, k -> new ArrayList<>());
-        gradesBySemester.get(semester).add(grade);
+        if (grade < 3 || grade > 5) {
+            throw new IllegalArgumentException();
+        }
 
-        lastSemester = Math.max(lastSemester, semester);
+        if (semesterNumber > lastSemester) {
+            lastSemester = semesterNumber;
+        }
+
+        Subject subject = allSubjectsWithLastGrades.stream()
+                .filter(sub -> sub.getName().equals(subjectName)).findFirst().orElse(null);
+
+        if (subject != null) {
+            if (semesterNumber >= lastSemester) {
+                subject.setGrade(grade);
+            }
+        } else {
+            Subject newSubject = new Subject(subjectName, grade);
+            allSubjectsWithLastGrades.add(newSubject);
+        }
+
+        Semester semester = semesters.get(semesterNumber);
+        semester.addGrade(subjectName, grade);
     }
 
     /**
@@ -72,14 +80,26 @@ public class StudentBook {
         double sum = 0;
         int count = 0;
 
-        for (List<Integer> grades : gradesBySemester.values()) {
-            for (int grade : grades) {
-                sum += grade;
+        for (Semester semester : semesters) {
+            double semesterAvg = semester.calculateAverageGrade();
+            sum += semesterAvg;
+            if (semesterAvg != 0.0) {
                 count++;
             }
         }
 
         return count > 0 ? sum / count : 0.0;
+    }
+
+    /**
+     * setQualificationWork.
+     */
+    public void setQualificationWork(Integer qualificationWork) {
+        if (qualificationWork < 3 || qualificationWork > 5) {
+            throw new IllegalArgumentException();
+        }
+        this.qualificationWork = qualificationWork;
+        updateDiplomaWithHonors();
     }
 
     /**
@@ -102,39 +122,28 @@ public class StudentBook {
      * updateDiplomaWithHonors.
      */
     private void updateDiplomaWithHonors() {
-        List<Integer> lastSemesterGrades = gradesBySemester.get(lastSemester);
-        if (lastSemesterGrades == null || lastSemesterGrades.isEmpty()) {
-            hasDiplomaWithHonors = false;
-            return;
+        if (allSubjectsWithLastGrades == null || allSubjectsWithLastGrades.isEmpty()) {
+            throw new NoSuchElementException();
         }
 
-        long excellentCount = lastSemesterGrades.stream().filter(grade -> grade == 5).count();
-        long satisfactoryCount = lastSemesterGrades.stream().filter(grade -> grade == 3).count();
+        long excellentCount = allSubjectsWithLastGrades.stream()
+                .filter(sub -> sub.getGrade() == 5).count();
+        long satisfactoryCount = allSubjectsWithLastGrades.stream()
+                .filter(sub -> sub.getGrade() == 3).count();
 
-        if (excellentCount >= 0.75 * lastSemesterGrades.size()
-                && satisfactoryCount == 0 && qualificationWork == 5) {
-            hasDiplomaWithHonors = true;
-        } else {
-            hasDiplomaWithHonors = false;
-        }
+        hasDiplomaWithHonors = excellentCount >= 0.75 * allSubjectsWithLastGrades.size()
+                && satisfactoryCount == 0 && qualificationWork == 5;
     }
 
     /**
      * updateScholarshipEligibility.
      */
     private void updateScholarshipEligibility() {
-        List<Integer> lastSemesterGrades = gradesBySemester.get(lastSemester);
-        if (lastSemesterGrades == null || lastSemesterGrades.isEmpty()) {
-            isEligibleForScholarship = false;
-            return;
+        Semester semester = semesters.get(lastSemester);
+        if (semester == null) {
+            throw new NoSuchElementException();
         }
 
-        long excellentCount = lastSemesterGrades.stream().filter(grade -> grade == 5).count();
-
-        if ((double) excellentCount / lastSemesterGrades.size() == 1) {
-            isEligibleForScholarship = true;
-        } else {
-            isEligibleForScholarship = false;
-        }
+        isEligibleForScholarship = semester.calculateAverageGrade() == 5;
     }
 }
