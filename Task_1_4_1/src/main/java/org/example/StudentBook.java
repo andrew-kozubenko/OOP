@@ -11,7 +11,7 @@ public class StudentBook {
     private Integer qualificationWork;
     private boolean hasDiplomaWithHonors;
     private boolean isEligibleForScholarship;
-    private List<Subject> allSubjectsWithLastGrades;
+    private final List<Subject> allSubjectsWithLastGrades;
 
     /**
      * getAllSubjectsWithLastGrades.
@@ -77,18 +77,11 @@ public class StudentBook {
      * calculateAverageGrade.
      */
     public double calculateAverageGrade() {
-        double sum = 0;
-        int count = 0;
-
-        for (Semester semester : semesters) {
-            double semesterAvg = semester.calculateAverageGrade();
-            sum += semesterAvg;
-            if (semesterAvg != 0.0) {
-                count++;
-            }
-        }
-
-        return count > 0 ? sum / count : 0.0;
+        return semesters.stream()
+                .mapToDouble(Semester::calculateAverageGrade)
+                .filter(average -> average != 0.0)
+                .average()
+                .orElse(0.0);
     }
 
     /**
@@ -99,7 +92,6 @@ public class StudentBook {
             throw new IllegalArgumentException();
         }
         this.qualificationWork = qualificationWork;
-        updateDiplomaWithHonors();
     }
 
     /**
@@ -118,18 +110,15 @@ public class StudentBook {
         return isEligibleForScholarship;
     }
 
+
     /**
      * updateDiplomaWithHonors.
      */
     private void updateDiplomaWithHonors() {
-        if (allSubjectsWithLastGrades == null || allSubjectsWithLastGrades.isEmpty()) {
-            throw new NoSuchElementException();
-        }
-
         long excellentCount = allSubjectsWithLastGrades.stream()
                 .filter(sub -> sub.getGrade() == 5).count();
-        long satisfactoryCount = allSubjectsWithLastGrades.stream()
-                .filter(sub -> sub.getGrade() == 3).count();
+        long satisfactoryCount = semesters.stream()
+                .filter(sem -> sem.satisfactoryCount() != 0).count();
 
         hasDiplomaWithHonors = excellentCount >= 0.75 * allSubjectsWithLastGrades.size()
                 && satisfactoryCount == 0 && qualificationWork == 5;
@@ -140,9 +129,6 @@ public class StudentBook {
      */
     private void updateScholarshipEligibility() {
         Semester semester = semesters.get(lastSemester);
-        if (semester == null) {
-            throw new NoSuchElementException();
-        }
 
         isEligibleForScholarship = semester.calculateAverageGrade() == 5;
     }

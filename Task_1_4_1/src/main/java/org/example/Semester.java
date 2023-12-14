@@ -32,6 +32,15 @@ public class Semester {
     }
 
     /**
+     * satisfactoryCount.
+     */
+    public long satisfactoryCount() {
+        return subjects.stream()
+                .filter(sub -> sub.getGrade() == 3)
+                .count();
+    }
+
+    /**
      * calculateAverageGrade.
      */
     public double calculateAverageGrade() {
@@ -39,11 +48,9 @@ public class Semester {
             return 0.0;
         }
 
-        double sum = 0;
-        for (Subject subject : subjects) {
-            sum += subject.getGrade();
-        }
-
-        return sum / subjects.size();
+        return subjects.stream()
+                .mapToDouble(Subject::getGrade)
+                .average()
+                .orElse(0.0);
     }
 }
