@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Locale;
+
 /**
  * CalculatorTest.
  */
@@ -13,6 +15,7 @@ public class CalculatorTest {
      */
     @Test
     void testEvaluateExpressionDouble() {
+        Locale.setDefault(Locale.US);
         assertEquals(5.0, Calculator.evaluateExpressionDouble("+ 2 3"));
         assertEquals(4.0, Calculator.evaluateExpressionDouble("* 2 2"));
         assertEquals(25.0, Calculator.evaluateExpressionDouble("pow 5"));
@@ -25,7 +28,7 @@ public class CalculatorTest {
      */
     @Test
     void testEvaluateExpressionComplex() {
-        // Тесты для evaluateExpressionComplex
+        Locale.setDefault(Locale.US);
         assertEquals("5.00", Calculator.evaluateExpressionComplex("+ 2 3").toString());
         assertEquals("4.00 + 2.00i", Calculator.evaluateExpressionComplex("+ 2 2+2i").toString());
         assertEquals("62.00 + 26.00i", Calculator.evaluateExpressionComplex("* 2+6i 7+-8i").toString());

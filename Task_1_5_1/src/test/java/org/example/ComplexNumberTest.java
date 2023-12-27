@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Locale;
+
 /**
  * ComplexNumberTest.
  */
@@ -13,10 +15,11 @@ public class ComplexNumberTest {
      */
     @Test
     void testAdd() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num1 = new ComplexNumber(2, 3);
         ComplexNumber num2 = new ComplexNumber(4, 5);
         ComplexNumber result = num1.add(num2);
-        assertEquals("6,00 + 8,00i", result.toString());
+        assertEquals("6.00 + 8.00i", result.toString());
     }
 
     /**
@@ -24,10 +27,11 @@ public class ComplexNumberTest {
      */
     @Test
     void testSubtract() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num1 = new ComplexNumber(5, 7);
         ComplexNumber num2 = new ComplexNumber(2, 3);
         ComplexNumber result = num1.subtract(num2);
-        assertEquals("3,00 + 4,00i", result.toString());
+        assertEquals("3.00 + 4.00i", result.toString());
     }
 
     /**
@@ -35,10 +39,11 @@ public class ComplexNumberTest {
      */
     @Test
     void testMultiply() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num1 = new ComplexNumber(2, 3);
         ComplexNumber num2 = new ComplexNumber(4, 5);
         ComplexNumber result = num1.multiply(num2);
-        assertEquals("-7,00 + 22,00i", result.toString());
+        assertEquals("-7.00 + 22.00i", result.toString());
     }
 
     /**
@@ -46,10 +51,11 @@ public class ComplexNumberTest {
      */
     @Test
     void testDivide() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num1 = new ComplexNumber(4, 7);
         ComplexNumber num2 = new ComplexNumber(2, 3);
         ComplexNumber result = num1.divide(num2);
-        assertEquals("2,23 + 0,15i", result.toString());
+        assertEquals("2.23 + 0.15i", result.toString());
     }
 
     /**
@@ -57,6 +63,7 @@ public class ComplexNumberTest {
      */
     @Test
     void testDivideByZero() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num1 = new ComplexNumber(3, 4);
         ComplexNumber num2 = new ComplexNumber(0, 0);
         assertThrows(ArithmeticException.class, () -> {
@@ -69,9 +76,10 @@ public class ComplexNumberTest {
      */
     @Test
     void testLog() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num = new ComplexNumber(3, 4);
         ComplexNumber result = ComplexNumber.log(num);
-        assertEquals("1,61 + 0,93i", result.toString());
+        assertEquals("1.61 + 0.93i", result.toString());
     }
 
     /**
@@ -79,9 +87,10 @@ public class ComplexNumberTest {
      */
     @Test
     void testPow() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num = new ComplexNumber(2, 3);
         ComplexNumber result = ComplexNumber.pow(num, 2);
-        assertEquals("-5,00 + 12,00i", result.toString());
+        assertEquals("-5.00 + 12.00i", result.toString());
     }
 
     /**
@@ -89,9 +98,10 @@ public class ComplexNumberTest {
      */
     @Test
     void testSqrt() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num = new ComplexNumber(3, 4);
         ComplexNumber result = ComplexNumber.sqrt(num);
-        assertEquals("2,00 + 1,00i", result.toString());
+        assertEquals("2.00 + 1.00i", result.toString());
     }
 
     /**
@@ -99,9 +109,10 @@ public class ComplexNumberTest {
      */
     @Test
     void testSin() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num = new ComplexNumber(1, 2);
         ComplexNumber result = ComplexNumber.sin(num);
-        assertEquals("3,17 + 1,96i", result.toString());
+        assertEquals("3.17 + 1.96i", result.toString());
     }
 
     /**
@@ -109,9 +120,10 @@ public class ComplexNumberTest {
      */
     @Test
     void testCos() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num = new ComplexNumber(1, 2);
         ComplexNumber result = ComplexNumber.cos(num);
-        assertEquals("2,03 - 3,05i", result.toString());
+        assertEquals("2.03 - 3.05i", result.toString());
     }
 
     /**
@@ -119,7 +131,8 @@ public class ComplexNumberTest {
      */
     @Test
     void testToString() {
+        Locale.setDefault(Locale.US);
         ComplexNumber num = new ComplexNumber(2, -3);
-        assertEquals("2,00 - 3,00i", num.toString());
+        assertEquals("2.00 - 3.00i", num.toString());
     }
 }
