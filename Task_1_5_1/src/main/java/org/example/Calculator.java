@@ -59,11 +59,11 @@ public class Calculator <T> {
             } else if (isOperator(token)) {
                 ComplexNumber operand1 = operands.pop();
                 ComplexNumber operand2 = operands.pop();
-                ComplexNumber result = applyOperator(token, operand1, operand2);
+                ComplexNumber result = applyOperatorComplex(token, operand1, operand2);
                 operands.push(result);
             } else if (isFunction(token)) {
                 ComplexNumber operand = operands.pop();
-                ComplexNumber result = applyFunction(token, operand);
+                ComplexNumber result = applyFunctionComplex(token, operand);
                 operands.push(result);
             } else {
                 throw new IllegalArgumentException("Недопустимый токен: " + token);
@@ -134,7 +134,7 @@ public class Calculator <T> {
     /**
      * applyOperator.
      */
-    private static ComplexNumber applyOperator(String operator, ComplexNumber operand1, ComplexNumber operand2) {
+    private static ComplexNumber applyOperatorComplex(String operator, ComplexNumber operand1, ComplexNumber operand2) {
         switch (operator) {
             case "+":
                 return operand1.add(operand2);
@@ -175,7 +175,7 @@ public class Calculator <T> {
     /**
      * applyFunction.
      */
-    private static ComplexNumber applyFunction(String function, ComplexNumber operand) {
+    private static ComplexNumber applyFunctionComplex(String function, ComplexNumber operand) {
         switch (function) {
             case "log":
                 return ComplexNumber.log(operand);
