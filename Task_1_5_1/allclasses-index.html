@@ -27,6 +27,12 @@
     catch(err) {
     }
 //-->
+var data = {"i0":2,"i1":2,"i2":2,"i3":2,"i4":2,"i5":2,"i6":2,"i7":2,"i8":2,"i9":2,"i10":2,"i11":2,"i12":2,"i13":2,"i14":2,"i15":2,"i16":2,"i17":2,"i18":2,"i19":2,"i20":2,"i21":2,"i22":2,"i23":2,"i24":2,"i25":2,"i26":1,"i27":2,"i28":1};
+var tabs = {65535:["t0","All Classes"],1:["t1","Interface Summary"],2:["t2","Class Summary"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
 var pathtoroot = "./";
 var useModuleDirectories = true;
 loadScripts(document, 'script');</script>
@@ -45,7 +51,8 @@ loadScripts(document, 'script');</script>
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="org/example/package-summary.html">Package</a></li>
+<li><a href="index.html">Overview</a></li>
+<li>Package</li>
 <li>Class</li>
 <li><a href="overview-tree.html">Tree</a></li>
 <li><a href="deprecated-list.html">Deprecated</a></li>
@@ -98,27 +105,179 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <table class="typeSummary">
-<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Classes</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Interface Summary</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Class Summary</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Class</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><a href="org/example/Calculator.html" title="class in org.example">Calculator</a>&lt;<a href="org/example/Calculator.html" title="type parameter in Calculator">T</a>&gt;</td>
+<td class="colFirst"><a href="org/example/Calculator.html" title="class in org.example">Calculator</a></td>
 <th class="colLast" scope="row">
 <div class="block">Calculator.</div>
 </th>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><a href="org/example/ComplexNumber.html" title="class in org.example">ComplexNumber</a></td>
+<td class="colFirst"><a href="org/example/operators/forcomplex/ComplexAddition.html" title="class in org.example.operators.forcomplex">ComplexAddition</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexAddition.</div>
+</th>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><a href="org/example/ComplexCalculator.html" title="class in org.example">ComplexCalculator</a></td>
+<th class="colLast" scope="row">&nbsp;</th>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><a href="org/example/functions/forcomplex/ComplexCos.html" title="class in org.example.functions.forcomplex">ComplexCos</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexCos.</div>
+</th>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><a href="org/example/operators/forcomplex/ComplexDivision.html" title="class in org.example.operators.forcomplex">ComplexDivision</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexDivision.</div>
+</th>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><a href="org/example/functions/forcomplex/ComplexFunctionFactory.html" title="class in org.example.functions.forcomplex">ComplexFunctionFactory</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexFunctionFactory.</div>
+</th>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><a href="org/example/functions/forcomplex/ComplexLog.html" title="class in org.example.functions.forcomplex">ComplexLog</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexLog.</div>
+</th>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><a href="org/example/operators/forcomplex/ComplexMultiplication.html" title="class in org.example.operators.forcomplex">ComplexMultiplication</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexMultiplication.</div>
+</th>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><a href="org/example/types/ComplexNumber.html" title="class in org.example.types">ComplexNumber</a></td>
 <th class="colLast" scope="row">
 <div class="block">ComplexNumber.</div>
 </th>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><a href="org/example/operators/forcomplex/ComplexOperatorFactory.html" title="class in org.example.operators.forcomplex">ComplexOperatorFactory</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexOperatorFactory.</div>
+</th>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><a href="org/example/functions/forcomplex/ComplexPow.html" title="class in org.example.functions.forcomplex">ComplexPow</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexPow.</div>
+</th>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><a href="org/example/functions/forcomplex/ComplexSin.html" title="class in org.example.functions.forcomplex">ComplexSin</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexSin.</div>
+</th>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><a href="org/example/functions/forcomplex/ComplexSqrt.html" title="class in org.example.functions.forcomplex">ComplexSqrt</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexSqrt.</div>
+</th>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><a href="org/example/operators/forcomplex/ComplexSubtraction.html" title="class in org.example.operators.forcomplex">ComplexSubtraction</a></td>
+<th class="colLast" scope="row">
+<div class="block">ComplexSubtraction.</div>
+</th>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><a href="org/example/operators/fordouble/DoubleAddition.html" title="class in org.example.operators.fordouble">DoubleAddition</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleAddition.</div>
+</th>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><a href="org/example/DoubleCalculator.html" title="class in org.example">DoubleCalculator</a></td>
+<th class="colLast" scope="row">&nbsp;</th>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><a href="org/example/functions/fordouble/DoubleCos.html" title="class in org.example.functions.fordouble">DoubleCos</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleCos.</div>
+</th>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><a href="org/example/operators/fordouble/DoubleDivision.html" title="class in org.example.operators.fordouble">DoubleDivision</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleDivision.</div>
+</th>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><a href="org/example/functions/fordouble/DoubleFunctionFactory.html" title="class in org.example.functions.fordouble">DoubleFunctionFactory</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleFunctionFactory.</div>
+</th>
+</tr>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><a href="org/example/functions/fordouble/DoubleLog.html" title="class in org.example.functions.fordouble">DoubleLog</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleLog.</div>
+</th>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><a href="org/example/operators/fordouble/DoubleMultiplication.html" title="class in org.example.operators.fordouble">DoubleMultiplication</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleMultiplication.</div>
+</th>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><a href="org/example/operators/fordouble/DoubleOperatorFactory.html" title="class in org.example.operators.fordouble">DoubleOperatorFactory</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleOperatorFactory.</div>
+</th>
+</tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><a href="org/example/functions/fordouble/DoublePow.html" title="class in org.example.functions.fordouble">DoublePow</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoublePow.</div>
+</th>
+</tr>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><a href="org/example/functions/fordouble/DoubleSin.html" title="class in org.example.functions.fordouble">DoubleSin</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleSin.</div>
+</th>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><a href="org/example/functions/fordouble/DoubleSqrt.html" title="class in org.example.functions.fordouble">DoubleSqrt</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleSqrt.</div>
+</th>
+</tr>
+<tr id="i25" class="rowColor">
+<td class="colFirst"><a href="org/example/operators/fordouble/DoubleSubtraction.html" title="class in org.example.operators.fordouble">DoubleSubtraction</a></td>
+<th class="colLast" scope="row">
+<div class="block">DoubleSubtraction.</div>
+</th>
+</tr>
+<tr id="i26" class="altColor">
+<td class="colFirst"><a href="org/example/interfaces/Function.html" title="interface in org.example.interfaces">Function</a>&lt;<a href="org/example/interfaces/Function.html" title="type parameter in Function">T</a>&gt;</td>
+<th class="colLast" scope="row">
+<div class="block">Function.</div>
+</th>
+</tr>
+<tr id="i27" class="rowColor">
 <td class="colFirst"><a href="org/example/Main.html" title="class in org.example">Main</a></td>
 <th class="colLast" scope="row">
 <div class="block">Main.</div>
+</th>
+</tr>
+<tr id="i28" class="altColor">
+<td class="colFirst"><a href="org/example/interfaces/Operator.html" title="interface in org.example.interfaces">Operator</a>&lt;<a href="org/example/interfaces/Operator.html" title="type parameter in Operator">T</a>&gt;</td>
+<th class="colLast" scope="row">
+<div class="block">Operator.</div>
 </th>
 </tr>
 </table>
@@ -137,7 +296,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="org/example/package-summary.html">Package</a></li>
+<li><a href="index.html">Overview</a></li>
+<li>Package</li>
 <li>Class</li>
 <li><a href="overview-tree.html">Tree</a></li>
 <li><a href="deprecated-list.html">Deprecated</a></li>

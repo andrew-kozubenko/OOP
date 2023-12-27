@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.example"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.example"},{"l":"org.example.functions.forcomplex"},{"l":"org.example.functions.fordouble"},{"l":"org.example.interfaces"},{"l":"org.example.operators.forcomplex"},{"l":"org.example.operators.fordouble"},{"l":"org.example.types"}]

@@ -1,1 +1,7 @@
 org.example
+org.example.functions.forcomplex
+org.example.functions.fordouble
+org.example.interfaces
+org.example.operators.forcomplex
+org.example.operators.fordouble
+org.example.types
