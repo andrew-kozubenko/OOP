@@ -6,10 +6,12 @@ import org.example.interfaces.Function;
 import org.example.interfaces.Operator;
 import org.example.operators.forcomplex.ComplexOperatorFactory;
 import org.example.types.ComplexNumber;
-
 import java.util.Stack;
 
-public class ComplexCalculator extends Calculator{
+/**
+ * ComplexCalculator.
+ */
+public class ComplexCalculator extends Calculator {
     /**
      * evaluateExpressionComplex.
      */
@@ -51,7 +53,9 @@ public class ComplexCalculator extends Calculator{
     /**
      * applyOperator.
      */
-    private static ComplexNumber applyOperatorComplex(String operator, ComplexNumber operand1,ComplexNumber operand2) {
+    private static ComplexNumber applyOperatorComplex(String operator,
+                                                      ComplexNumber operand1,
+                                                      ComplexNumber operand2) {
         Operator<ComplexNumber> op = ComplexOperatorFactory.createOperator(operator);
         return op.apply(operand1, operand2);
     }
@@ -59,7 +63,9 @@ public class ComplexCalculator extends Calculator{
     /**
      * applyFunction.
      */
-    private static ComplexNumber applyFunctionComplex(String function, ComplexNumber operand, boolean inDegrees) {
+    private static ComplexNumber applyFunctionComplex(String function,
+                                                      ComplexNumber operand,
+                                                      boolean inDegrees) {
         Function<ComplexNumber> func = ComplexFunctionFactory.createOperator(function);
         return func.apply(operand, inDegrees);
     }

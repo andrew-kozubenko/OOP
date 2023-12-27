@@ -1,12 +1,14 @@
 package org.example;
 
+import java.util.Stack;
 import org.example.functions.fordouble.DoubleFunctionFactory;
 import org.example.interfaces.Function;
 import org.example.interfaces.Operator;
 import org.example.operators.fordouble.DoubleOperatorFactory;
 
-import java.util.Stack;
-
+/**
+ * DoubleCalculator.
+ */
 public class DoubleCalculator extends Calculator {
     /**
      * evaluateExpressionDouble.

@@ -1,9 +1,8 @@
 package org.example;
 
-import org.example.types.ComplexNumber;
-
 import java.util.Locale;
 import java.util.Scanner;
+import org.example.types.ComplexNumber;
 
 /**
  * Main.
@@ -18,7 +17,7 @@ public class Main {
 
         boolean isComplex = false;
         
-        while(true) {
+        while (true) {
             System.out.println("Введите выражение в префиксной форме:");
             String expression = scanner.nextLine();
 
@@ -37,15 +36,17 @@ public class Main {
 
             try {
                 if (isComplex) {
-                    ComplexNumber result = ComplexCalculator.evaluateExpressionComplex(expression, false);
+                    ComplexNumber result =
+                            ComplexCalculator.evaluateExpressionComplex(expression, false);
                     System.out.println("Результат: " + result);
                 } else {
-                    double result = DoubleCalculator.evaluateExpressionDouble(expression, false);
+                    double result =
+                            DoubleCalculator.evaluateExpressionDouble(expression, false);
                     System.out.println("Результат: " + result);
                 }
             } catch (Exception e) {
-                System.out.println("Ошибка: " + e.getMessage() +
-                        "\nДля смены режима введите \"switch\", для завершения введите \"stop\"");
+                System.out.println("Ошибка: " + e.getMessage()
+                        + "\nДля смены режима введите \"switch\", для завершения введите \"stop\"");
             }
         }
     }
