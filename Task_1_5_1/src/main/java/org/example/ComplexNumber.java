@@ -1,8 +1,5 @@
 package org.example;
 
-import java.util.Scanner;
-import java.util.Stack;
-
 /**
  * ComplexNumber.
  */
@@ -90,7 +87,8 @@ public class ComplexNumber {
     public static ComplexNumber pow(ComplexNumber z, double exponent) {
         double magnitude = Math.pow(Math.sqrt(z.real * z.real + z.imag * z.imag), exponent);
         double angle = exponent * Math.atan2(z.imag, z.real);
-        return new ComplexNumber(magnitude * Math.cos(angle), magnitude * Math.sin(angle));
+        return new ComplexNumber(magnitude * Math.cos(angle),
+                magnitude * Math.sin(angle));
     }
 
     /**
@@ -99,21 +97,24 @@ public class ComplexNumber {
     public static ComplexNumber sqrt(ComplexNumber z) {
         double magnitude = Math.sqrt(z.real * z.real + z.imag * z.imag);
         double angle = 0.5 * Math.atan2(z.imag, z.real);
-        return new ComplexNumber(Math.sqrt(magnitude) * Math.cos(angle), Math.sqrt(magnitude) * Math.sin(angle));
+        return new ComplexNumber(Math.sqrt(magnitude) * Math.cos(angle),
+                Math.sqrt(magnitude) * Math.sin(angle));
     }
 
     /**
      * sin.
      */
     public static ComplexNumber sin(ComplexNumber z) {
-        return new ComplexNumber(Math.sin(z.real) * Math.cosh(z.imag), Math.cos(z.real) * Math.sinh(z.imag));
+        return new ComplexNumber(Math.sin(z.real) * Math.cosh(z.imag),
+                Math.cos(z.real) * Math.sinh(z.imag));
     }
 
     /**
      * cos.
      */
     public static ComplexNumber cos(ComplexNumber z) {
-        return new ComplexNumber(Math.cos(z.real) * Math.cosh(z.imag), -Math.sin(z.real) * Math.sinh(z.imag));
+        return new ComplexNumber(Math.cos(z.real) * Math.cosh(z.imag),
+                -Math.sin(z.real) * Math.sinh(z.imag));
     }
 
     /**
