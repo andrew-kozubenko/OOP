@@ -17,7 +17,7 @@ public class Main {
         String expression = scanner.nextLine();
 
         try {
-            double result = Calculator.evaluateExpressionDouble(expression);
+            double result = Calculator.evaluateExpressionDouble(expression, false);
             System.out.println("Результат: " + result);
         } catch (Exception e) {
             System.out.println("Ошибка: " + e.getMessage());
@@ -27,7 +27,7 @@ public class Main {
         String expression1 = scanner.nextLine();
 
         try {
-            ComplexNumber result1 = Calculator.evaluateExpressionComplex(expression1);
+            ComplexNumber result1 = Calculator.evaluateExpressionComplex(expression1, false);
             System.out.println("Результат: " + result1.toString());
         } catch (Exception e) {
             System.out.println("Ошибка: " + e.getMessage());

@@ -9,7 +9,7 @@ public class Calculator <T> {
     /**
      * evaluateExpressionDouble.
      */
-    public static double evaluateExpressionDouble(String expression) {
+    public static double evaluateExpressionDouble(String expression, boolean inDegrees) {
         Stack<Double> operands = new Stack<>();
         String[] tokens = expression.split("\\s+");
 
@@ -25,7 +25,7 @@ public class Calculator <T> {
                 operands.push(result);
             } else if (isFunction(token)) {
                 double operand = operands.pop();
-                double result = applyFunction(token, operand);
+                double result = applyFunction(token, operand, inDegrees);
                 operands.push(result);
             } else {
                 throw new IllegalArgumentException("Недопустимый токен: " + token);
@@ -42,7 +42,7 @@ public class Calculator <T> {
     /**
      * evaluateExpressionComplex.
      */
-    public static ComplexNumber evaluateExpressionComplex(String expression) {
+    public static ComplexNumber evaluateExpressionComplex(String expression, boolean inDegrees) {
         Stack<ComplexNumber> operands = new Stack<>();
         String[] tokens = expression.split("\\s+");
 
@@ -63,7 +63,7 @@ public class Calculator <T> {
                 operands.push(result);
             } else if (isFunction(token)) {
                 ComplexNumber operand = operands.pop();
-                ComplexNumber result = applyFunctionComplex(token, operand);
+                ComplexNumber result = applyFunctionComplex(token, operand, inDegrees);
                 operands.push(result);
             } else {
                 throw new IllegalArgumentException("Недопустимый токен: " + token);
@@ -134,7 +134,7 @@ public class Calculator <T> {
     /**
      * applyOperator.
      */
-    private static ComplexNumber applyOperatorComplex(String operator, ComplexNumber operand1, ComplexNumber operand2) {
+    private static ComplexNumber applyOperatorComplex(String operator, ComplexNumber operand1,ComplexNumber operand2) {
         switch (operator) {
             case "+":
                 return operand1.add(operand2);
@@ -155,7 +155,7 @@ public class Calculator <T> {
     /**
      * applyFunction.
      */
-    private static double applyFunction(String function, double operand) {
+    private static double applyFunction(String function, double operand, boolean inDegrees) {
         switch (function) {
             case "log":
                 return Math.log(operand);
@@ -164,9 +164,17 @@ public class Calculator <T> {
             case "sqrt":
                 return Math.sqrt(operand);
             case "sin":
-                return Math.sin(Math.toRadians(operand));
+                if (inDegrees) {
+                    return Math.sin(Math.toRadians(operand));
+                } else {
+                    return Math.sin(Math.toDegrees(operand));
+                }
             case "cos":
-                return Math.cos(Math.toRadians(operand));
+                if (inDegrees) {
+                    return Math.cos(Math.toRadians(operand));
+                } else {
+                    return Math.cos(Math.toDegrees(operand));
+                }
             default:
                 throw new IllegalArgumentException("Недопустимая функция: " + function);
         }
@@ -175,7 +183,7 @@ public class Calculator <T> {
     /**
      * applyFunction.
      */
-    private static ComplexNumber applyFunctionComplex(String function, ComplexNumber operand) {
+    private static ComplexNumber applyFunctionComplex(String function, ComplexNumber operand, boolean inDegrees) {
         switch (function) {
             case "log":
                 return ComplexNumber.log(operand);
@@ -184,9 +192,9 @@ public class Calculator <T> {
             case "sqrt":
                 return ComplexNumber.sqrt(operand);
             case "sin":
-                return ComplexNumber.sin(operand);
+                return ComplexNumber.sin(operand, inDegrees);
             case "cos":
-                return ComplexNumber.cos(operand);
+                return ComplexNumber.cos(operand, inDegrees);
             default:
                 throw new IllegalArgumentException("Недопустимая функция: " + function);
         }

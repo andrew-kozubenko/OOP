@@ -110,7 +110,7 @@ public class ComplexNumberTest {
     void testSin() {
         Locale.setDefault(Locale.US);
         ComplexNumber num = new ComplexNumber(1, 2);
-        ComplexNumber result = ComplexNumber.sin(num);
+        ComplexNumber result = ComplexNumber.sin(num, false);
         assertEquals("3.17 + 1.96i", result.toString());
     }
 
@@ -121,7 +121,7 @@ public class ComplexNumberTest {
     void testCos() {
         Locale.setDefault(Locale.US);
         ComplexNumber num = new ComplexNumber(1, 2);
-        ComplexNumber result = ComplexNumber.cos(num);
+        ComplexNumber result = ComplexNumber.cos(num, false);
         assertEquals("2.03 - 3.05i", result.toString());
     }
 

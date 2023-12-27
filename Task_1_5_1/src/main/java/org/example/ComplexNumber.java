@@ -104,7 +104,10 @@ public class ComplexNumber {
     /**
      * sin.
      */
-    public static ComplexNumber sin(ComplexNumber z) {
+    public static ComplexNumber sin(ComplexNumber z, boolean inDegrees) {
+        if (inDegrees) {
+            z = z.toDegrees();
+        }
         return new ComplexNumber(Math.sin(z.real) * Math.cosh(z.imag),
                 Math.cos(z.real) * Math.sinh(z.imag));
     }
@@ -112,9 +115,19 @@ public class ComplexNumber {
     /**
      * cos.
      */
-    public static ComplexNumber cos(ComplexNumber z) {
+    public static ComplexNumber cos(ComplexNumber z, boolean inDegrees) {
+        if (inDegrees) {
+            z = z.toDegrees();
+        }
         return new ComplexNumber(Math.cos(z.real) * Math.cosh(z.imag),
                 -Math.sin(z.real) * Math.sinh(z.imag));
+    }
+
+    /**
+     * toRadians.
+     */
+    private ComplexNumber toDegrees() {
+        return new ComplexNumber(Math.toDegrees(this.getReal()), Math.toRadians(this.getImag()));
     }
 
     /**
