@@ -1,12 +1,12 @@
 package org.example;
 
+import java.util.Stack;
 import org.example.functions.forcomplex.ComplexFunctionFactory;
 import org.example.functions.fordouble.DoubleFunctionFactory;
 import org.example.interfaces.Function;
 import org.example.interfaces.Operator;
 import org.example.operators.forcomplex.ComplexOperatorFactory;
 import org.example.types.ComplexNumber;
-import java.util.Stack;
 
 /**
  * ComplexCalculator.

@@ -1,7 +1,7 @@
 package org.example.operators.forcomplex;
 
-import org.example.types.ComplexNumber;
 import org.example.interfaces.Operator;
+import org.example.types.ComplexNumber;
 
 /**
  * ComplexAddition.

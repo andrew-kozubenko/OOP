@@ -3,7 +3,7 @@ package org.example.interfaces;
 /**
  * Operator.
  */
-public interface Operator <T> {
+public interface Operator<T> {
     /**
      * apply.
      */

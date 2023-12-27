@@ -20,14 +20,16 @@ public abstract class Calculator {
      * isOperator.
      */
     public static boolean isOperator(String token) {
-        return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
+        return token.equals("+") || token.equals("-")
+                || token.equals("*") || token.equals("/");
     }
 
     /**
      * isFunction.
      */
     public static boolean isFunction(String token) {
-        return token.equals("log") || token.equals("pow") || token.equals("sqrt") || token.equals("sin") || token.equals("cos");
+        return token.equals("log") || token.equals("pow") || token.equals("sqrt")
+                || token.equals("sin") || token.equals("cos");
     }
 
     /**
