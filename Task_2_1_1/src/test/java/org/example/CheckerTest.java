@@ -32,7 +32,7 @@ class CheckerTest {
         assertTrue(Checker.hasNonPrimeSequential(nums1));
 
         int[] nums2 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
-                6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
+                        6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
         assertFalse(Checker.hasNonPrimeSequential(nums2));
     }
 
@@ -45,7 +45,7 @@ class CheckerTest {
         assertTrue(Checker.hasNonPrimeParallelWithThreads(nums1, 4));
 
         int[] nums2 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
-                6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
+                        6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
         assertFalse(Checker.hasNonPrimeParallelWithThreads(nums2, 4));
     }
 
@@ -58,7 +58,7 @@ class CheckerTest {
         assertTrue(Checker.hasNonPrimeParallelWithStream(nums1));
 
         int[] nums2 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
-                6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
+                        6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
         assertFalse(Checker.hasNonPrimeParallelWithStream(nums2));
     }
 }

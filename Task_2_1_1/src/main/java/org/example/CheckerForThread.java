@@ -5,8 +5,8 @@ package org.example;
  */
 class CheckerForThread extends Thread {
     private int[] nums;
-    private int start, end;
-
+    private int start;
+    private int end;
     public boolean hasNonPrime = false;
 
     /**

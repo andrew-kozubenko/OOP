@@ -32,7 +32,9 @@ public class Checker {
      */
     public static boolean hasNonPrimeSequential(int[] nums) {
         for (int num : nums) {
-            if (!isPrime(num)) return true;
+            if (!isPrime(num)) {
+                return true;
+            }
         }
         return false;
     }
@@ -41,7 +43,8 @@ public class Checker {
      * hasNonPrimeParallelWithThreads.
      */
     public static boolean hasNonPrimeParallelWithThreads(int[] nums,
-                                                         int numThreads) throws InterruptedException {
+                                                         int numThreads)
+            throws InterruptedException {
         int chunkSize = nums.length / numThreads;
         CheckerForThread[] threads = new CheckerForThread[numThreads];
         for (int i = 0; i < numThreads; i++) {

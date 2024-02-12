@@ -11,13 +11,14 @@ public class Main {
      */
     public static void main(String[] args) {
         int[] testData = generateTestData(1000000);
-        long[] executionTimes = new long[5];
+        long startTime;
+        long endTime;
 
-        long startTime, endTime;
-
-        startTime = System.currentTimeMillis();
         Checker.hasNonPrimeSequential(testData);
+        startTime = System.currentTimeMillis();
         endTime = System.currentTimeMillis();
+
+        long[] executionTimes = new long[5];
         executionTimes[0] = endTime - startTime;
         System.out.println("1: Sequential method finished");
 
@@ -58,7 +59,7 @@ public class Main {
     public static int[] generateTestData(int size) {
         int[] testData = new int[size];
         int[] testData1 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
-                6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
+                            6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
         for (int i = 0; i < size; i++) {
             testData[i] = testData1[i % 12];
         }
