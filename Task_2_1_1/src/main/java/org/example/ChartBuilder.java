@@ -1,11 +1,11 @@
 package org.example;
 
+import javax.swing.*;
+import java.awt.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
-import javax.swing.*;
-import java.awt.*;
 
 /**
  * ChartBuilder.
@@ -18,13 +18,13 @@ public class ChartBuilder extends JFrame {
      */
     public ChartBuilder(long[] executionTimes) {
         this.executionTimes = executionTimes;
-        initUI();
+        initUi();
     }
 
     /**
      * initUI.
      */
-    private void initUI() {
+    private void initUi() {
         setTitle("Execution Time Chart");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);

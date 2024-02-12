@@ -6,6 +6,7 @@ package org.example;
 class CheckerForThread extends Thread {
     private int[] nums;
     private int start, end;
+
     public boolean hasNonPrime = false;
 
     /**

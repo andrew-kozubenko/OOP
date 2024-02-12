@@ -11,9 +11,9 @@ public class Main {
      */
     public static void main(String[] args) {
         int[] testData = generateTestData(1000000);
+        long[] executionTimes = new long[5];
 
         long startTime, endTime;
-        long[] executionTimes = new long[5];
 
         startTime = System.currentTimeMillis();
         Checker.hasNonPrimeSequential(testData);

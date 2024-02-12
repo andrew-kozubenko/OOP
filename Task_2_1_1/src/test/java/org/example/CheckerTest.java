@@ -1,7 +1,7 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -29,10 +29,10 @@ class CheckerTest {
     @Test
     void testHasNonPrimeSequential() {
         int[] nums1 = {6, 8, 7, 13, 5, 9, 4};
+        assertTrue(Checker.hasNonPrimeSequential(nums1));
+
         int[] nums2 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
                 6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
-
-        assertTrue(Checker.hasNonPrimeSequential(nums1));
         assertFalse(Checker.hasNonPrimeSequential(nums2));
     }
 
@@ -42,10 +42,10 @@ class CheckerTest {
     @Test
     void testHasNonPrimeParallelWithThreads() throws InterruptedException {
         int[] nums1 = {6, 8, 7, 13, 5, 9, 4};
+        assertTrue(Checker.hasNonPrimeParallelWithThreads(nums1, 4));
+
         int[] nums2 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
                 6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
-
-        assertTrue(Checker.hasNonPrimeParallelWithThreads(nums1, 4));
         assertFalse(Checker.hasNonPrimeParallelWithThreads(nums2, 4));
     }
 
@@ -55,10 +55,10 @@ class CheckerTest {
     @Test
     void testHasNonPrimeParallelWithSteam() throws InterruptedException {
         int[] nums1 = {6, 8, 7, 13, 5, 9, 4};
+        assertTrue(Checker.hasNonPrimeParallelWithStream(nums1));
+
         int[] nums2 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
                 6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
-
-        assertTrue(Checker.hasNonPrimeParallelWithStream(nums1));
         assertFalse(Checker.hasNonPrimeParallelWithStream(nums2));
     }
 }

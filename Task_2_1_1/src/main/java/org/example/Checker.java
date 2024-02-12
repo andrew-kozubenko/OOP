@@ -10,12 +10,19 @@ public class Checker {
      * isPrime.
      */
     public static boolean isPrime(int num) {
-        if (num <= 1) return false;
-        if (num == 2 || num == 3) return true;
-        if (num % 2 == 0) return false;
+        if (num <= 1) {
+            return false;
+        } else if (num == 2 || num == 3) {
+            return true;
+        } else if (num % 2 == 0) {
+            return false;
+        }
+
         int sqrt = (int) Math.sqrt(num);
         for (int i = 3; i <= sqrt; i += 2) {
-            if (num % i == 0) return false;
+            if (num % i == 0) {
+                return false;
+            }
         }
         return true;
     }
@@ -33,7 +40,8 @@ public class Checker {
     /**
      * hasNonPrimeParallelWithThreads.
      */
-    public static boolean hasNonPrimeParallelWithThreads(int[] nums, int numThreads) throws InterruptedException {
+    public static boolean hasNonPrimeParallelWithThreads(int[] nums,
+                                                         int numThreads) throws InterruptedException {
         int chunkSize = nums.length / numThreads;
         CheckerForThread[] threads = new CheckerForThread[numThreads];
         for (int i = 0; i < numThreads; i++) {
@@ -44,7 +52,9 @@ public class Checker {
         }
         for (CheckerForThread thread : threads) {
             thread.join();
-            if (thread.hasNonPrime) return true;
+            if (thread.hasNonPrime) {
+                return true;
+            }
         }
         return false;
     }
