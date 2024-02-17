@@ -1,12 +1,12 @@
-package org.example;
+package org.example.hasnotprimecheck.checkers;
 
 /**
  * CheckerForThread.
  */
 class CheckerForThread extends Thread {
-    private int[] nums;
-    private int start;
-    private int end;
+    private final int[] nums;
+    private final int start;
+    private final int end;
     public boolean hasNonPrime = false;
 
     /**
