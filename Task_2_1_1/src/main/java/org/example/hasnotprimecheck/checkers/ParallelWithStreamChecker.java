@@ -2,6 +2,9 @@ package org.example.hasnotprimecheck.checkers;
 
 import java.util.Arrays;
 
+/**
+ * ParallelWithStreamChecker.
+ */
 public class ParallelWithStreamChecker extends Checker {
     /**
      * hasNonPrime.
@@ -14,7 +17,8 @@ public class ParallelWithStreamChecker extends Checker {
      * hasNonPrime.
      */
     public static boolean hasNonPrime(int[] nums, int numThreads) {
-        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", String.valueOf(numThreads));
+        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism",
+                String.valueOf(numThreads));
         return Arrays.stream(nums).parallel().anyMatch(num -> !isPrime(num));
     }
 }

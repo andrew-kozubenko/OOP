@@ -1,5 +1,8 @@
 package org.example.hasnotprimecheck.checkers;
 
+/**
+ * ParallelWithThreadsChecker.
+ */
 public class ParallelWithThreadsChecker extends Checker {
     /**
      * hasNonPrimeParallelWithThreads.

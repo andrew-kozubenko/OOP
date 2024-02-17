@@ -2,6 +2,9 @@ package org.example.hasnotprimecheck.checkers;
 
 import java.util.Arrays;
 
+/**
+ * SequentialChecker.
+ */
 public class SequentialChecker extends Checker {
     /**
      * hasNonPrime.

@@ -18,14 +18,14 @@ public class ParallelWithStreamCheckerTest {
         assertTrue(ParallelWithStreamChecker.hasNonPrime(nums1));
 
         int[] nums2 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
-                6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
+                       6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
         assertFalse(ParallelWithStreamChecker.hasNonPrime(nums2));
 
         int[] nums3 = {6, 8, 7, 13, 5, 9, 4};
         assertTrue(ParallelWithStreamChecker.hasNonPrime(nums3, 4));
 
         int[] nums4 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
-                6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
+                       6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
         assertFalse(ParallelWithStreamChecker.hasNonPrime(nums4, 4));
     }
 }

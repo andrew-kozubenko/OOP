@@ -1,9 +1,9 @@
 package org.example.hasnotprimecheck;
 
+import javax.swing.*;
 import org.example.hasnotprimecheck.checkers.ParallelWithStreamChecker;
 import org.example.hasnotprimecheck.checkers.ParallelWithThreadsChecker;
 import org.example.hasnotprimecheck.checkers.SequentialChecker;
-import javax.swing.*;
 
 /**
  * Main.
@@ -37,7 +37,7 @@ public class Main {
     /**
      * buildChart.
      */
-    public static void buildChart(long[] executionTimes){
+    public static void buildChart(long[] executionTimes) {
         SwingUtilities.invokeLater(() -> {
             ChartBuilder ex = new ChartBuilder(executionTimes);
             ex.setVisible(true);
@@ -100,7 +100,7 @@ public class Main {
     public static int[] generateTestData(int size) {
         int[] testData = new int[size];
         int[] testData1 = {20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
-                            6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
+                           6998009, 6998029, 6998039, 20165149, 6998051, 6998053};
         for (int i = 0; i < size; i++) {
             testData[i] = testData1[i % 12];
         }
