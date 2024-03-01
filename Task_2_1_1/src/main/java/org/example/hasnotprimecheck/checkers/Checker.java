@@ -1,7 +1,5 @@
 package org.example.hasnotprimecheck.checkers;
 
-import java.util.Arrays;
-
 /**
  * Checker.
  */

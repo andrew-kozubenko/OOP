@@ -19,6 +19,8 @@ public class ParallelWithStreamChecker extends Checker {
     public static boolean hasNonPrime(int[] nums, int numThreads) {
         System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism",
                 String.valueOf(numThreads));
-        return Arrays.stream(nums).parallel().anyMatch(num -> !isPrime(num));
+        boolean result = Arrays.stream(nums).parallel().anyMatch(num -> !isPrime(num));
+        System.clearProperty("java.util.concurrent.ForkJoinPool.common.parallelism");
+        return result;
     }
 }

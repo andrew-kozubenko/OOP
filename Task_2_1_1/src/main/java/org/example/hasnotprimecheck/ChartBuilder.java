@@ -58,10 +58,13 @@ public class ChartBuilder extends JFrame {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         dataset.addValue(executionTimes[0], "Time", "Sequential");
-        dataset.addValue(executionTimes[1], "Time", "Parallel (2 threads)");
-        dataset.addValue(executionTimes[2], "Time", "Parallel (4 threads)");
-        dataset.addValue(executionTimes[3], "Time", "Parallel (8 threads)");
-        dataset.addValue(executionTimes[4], "Time", "Parallel (parallelStream)");
+        dataset.addValue(executionTimes[1], "Time", "Parallel (1 thread)");
+        dataset.addValue(executionTimes[2], "Time", "Parallel (2 threads)");
+        dataset.addValue(executionTimes[3], "Time", "Parallel (4 threads)");
+        dataset.addValue(executionTimes[4], "Time", "Parallel (8 threads)");
+        dataset.addValue(executionTimes[5], "Time", "Parallel (16 threads)");
+        dataset.addValue(executionTimes[6], "Time", "Parallel (32 threads)");
+        dataset.addValue(executionTimes[7], "Time", "Parallel (parallelStream)");
 
         return dataset;
     }

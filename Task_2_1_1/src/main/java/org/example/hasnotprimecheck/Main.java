@@ -14,7 +14,7 @@ public class Main {
      */
     public static void main(String[] args) {
         int[] testData = generateTestData(1000000);
-        long[] executionTimes = new long[5];
+        long[] executionTimes = new long[8];
 
         testSequential(testData, executionTimes);
         testParallelWithThreads(testData, executionTimes);
@@ -65,7 +65,7 @@ public class Main {
     public static void testParallelWithThreads(int[] testData, long[] executionTimes) {
         long startTime;
         long endTime;
-        int[] threadCounts = {2, 4, 8};
+        int[] threadCounts = {1, 2, 4, 8, 16, 32};
         for (int i = 0; i < threadCounts.length; i++) {
             try {
                 startTime = System.currentTimeMillis();
@@ -90,8 +90,8 @@ public class Main {
         startTime = System.currentTimeMillis();
         ParallelWithStreamChecker.hasNonPrime(testData);
         endTime = System.currentTimeMillis();
-        executionTimes[4] = endTime - startTime;
-        System.out.println("5: Parallel stream method finished");
+        executionTimes[7] = endTime - startTime;
+        System.out.println("8: Parallel stream method finished");
     }
 
     /**
