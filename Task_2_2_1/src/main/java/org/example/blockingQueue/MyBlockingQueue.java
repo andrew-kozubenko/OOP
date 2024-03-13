@@ -33,4 +33,9 @@ public class MyBlockingQueue<T> implements BlockingQueue<T> {
         }
         return queue.poll();
     }
+
+    @Override
+    public synchronized boolean isEmpty() {
+        return queue.isEmpty();
+    }
 }

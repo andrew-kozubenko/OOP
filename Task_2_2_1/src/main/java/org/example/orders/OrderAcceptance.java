@@ -19,8 +19,8 @@ public class OrderAcceptance extends Thread{
     public void run() {
         for (Order order : orderList) {
             try {
-                Thread.sleep(1000); //Имитация процесса принятия заказа
-                orderQueue.put(order); // Добавляем заказ в очередь
+                Thread.sleep(3000);
+                orderQueue.put(order);
                 System.out.println("Принят заказ: " + order.getName());
             } catch (InterruptedException e) {
                 return;

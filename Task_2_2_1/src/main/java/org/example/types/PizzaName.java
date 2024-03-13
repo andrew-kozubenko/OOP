@@ -12,8 +12,7 @@ public enum PizzaName {
     CAPRICCIOSA,
     DIABOLA,
     CARBONARA,
-    FOUR_CHEESES,
-    NONE;
+    FOUR_CHEESES;
 
     private static final PizzaName[] VALUES = values();
     private static final int SIZE = VALUES.length;
