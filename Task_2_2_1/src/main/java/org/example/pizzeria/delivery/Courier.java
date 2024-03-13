@@ -16,7 +16,7 @@ public class Courier extends Thread{
         if (efficiencyPerc < 0 || efficiencyPerc > 100) {
             throw new IllegalArgumentException(
                     "Значение параметра efficiencyСoefficient" +
-                            " должно лежать в диапазоне [0.0, 1.0]");
+                            " должно лежать в диапазоне [0, 100]");
         }
         this.name = name;
         this.efficiencyPerc = efficiencyPerc;
@@ -24,7 +24,7 @@ public class Courier extends Thread{
         this.pizzeria = pizzeria;
     }
 
-    private void deliver() throws InterruptedException {
+    public void deliver() throws InterruptedException {
         Order order = storageQueue.take();
         pizzeria.incrementCouriers();
         System.out.println("Курьер: " + name +

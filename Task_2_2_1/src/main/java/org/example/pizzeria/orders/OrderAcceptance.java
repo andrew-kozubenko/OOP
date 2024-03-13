@@ -18,7 +18,7 @@ public class OrderAcceptance extends Thread{
     public void run() {
         for (Order order : orderList) {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 orderQueue.put(order);
                 System.out.println("Принят заказ: " + order.getName());
             } catch (InterruptedException e) {
