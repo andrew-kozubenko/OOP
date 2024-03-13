@@ -1,22 +1,27 @@
 package org.example.pizzeria.bakery;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
 import org.example.pizzeria.Pizzeria;
 import org.example.pizzeria.blockingQueue.MyBlockingQueue;
 import org.example.pizzeria.orders.Order;
 import org.example.pizzeria.pizza.Pizza;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
-
+/**
+ * BakerTest.
+ */
 public class BakerTest {
     private MyBlockingQueue<Order> mockOrderQueue;
     private MyBlockingQueue<Order> mockStorageQueue;
     private Pizzeria mockPizzeria;
 
+    /**
+     * setUp.
+     */
     @BeforeEach
     public void setUp() {
         mockOrderQueue = mock(MyBlockingQueue.class);
@@ -24,6 +29,9 @@ public class BakerTest {
         mockPizzeria = mock(Pizzeria.class);
     }
 
+    /**
+     * testCookingProcess.
+     */
     @Test
     public void testCookingProcess() throws InterruptedException {
         // Создаем моки
@@ -32,7 +40,8 @@ public class BakerTest {
         Pizzeria mockPizzeria = mock(Pizzeria.class);
 
         // Создаем экземпляр бекера
-        Baker baker = new Baker("John", 80, mockOrderQueue, mockStorageQueue, mockPizzeria);
+        Baker baker = new Baker("John", 80,
+                mockOrderQueue, mockStorageQueue, mockPizzeria);
 
         // Создаем мокированный заказ и пиццы
         Order mockOrder = mock(Order.class);
@@ -53,12 +62,19 @@ public class BakerTest {
         verify(mockPizzeria, times(1)).decrementBakers();
     }
 
+    /**
+     * testConstructorWithInvalidEfficiencyPerc.
+     */
     @Test
     public void testConstructorWithInvalidEfficiencyPerc() {
         try {
-            Baker baker = new Baker("John", 110, mockOrderQueue, mockStorageQueue, mockPizzeria);
+            Baker baker = new Baker("John", 110,
+                    mockOrderQueue, mockStorageQueue, mockPizzeria);
         } catch (IllegalArgumentException e) {
-            assertEquals("Значение параметра efficiencyСoefficient должно лежать в диапазоне [0, 100]", e.getMessage());
+            assertEquals(
+                    "Значение параметра efficiencyСoefficient " +
+                            "должно лежать в диапазоне [0, 100]",
+                    e.getMessage());
         }
     }
 }

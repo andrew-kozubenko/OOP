@@ -2,6 +2,9 @@ package org.example.pizzeria.types;
 
 import java.util.Random;
 
+/**
+ * PizzaName.
+ */
 public enum PizzaName {
     MARGARET,
     HAWAIIAN,
@@ -18,6 +21,9 @@ public enum PizzaName {
     private static final int SIZE = VALUES.length;
     private static final Random RANDOM = new Random();
 
+    /**
+     * getRandomPizzaName.
+     */
     public static PizzaName getRandomPizzaName() {
         return VALUES[RANDOM.nextInt(SIZE)];
     }

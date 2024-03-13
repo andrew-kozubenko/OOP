@@ -5,6 +5,9 @@ import org.example.pizzeria.blockingQueue.MyBlockingQueue;
 import org.example.pizzeria.orders.Order;
 import org.example.pizzeria.pizza.Pizza;
 
+/**
+ * Baker.
+ */
 public class Baker extends Thread {
     private String name;
     private Integer efficiencyPerc;
@@ -12,6 +15,9 @@ public class Baker extends Thread {
     private MyBlockingQueue<Order> storageQueue;
     private Pizzeria pizzeria;
 
+    /**
+     * Baker.
+     */
     public Baker (String name, Integer efficiencyPerc,
                   MyBlockingQueue<Order> orderQueue,
                   MyBlockingQueue<Order> storageQueue,
@@ -28,6 +34,9 @@ public class Baker extends Thread {
         this.pizzeria = pizzeria;
     }
 
+    /**
+     * cook.
+     */
     public void cook() throws InterruptedException {
         Order order = orderQueue.take();
         Integer totalCookingTime = 0;
@@ -46,10 +55,16 @@ public class Baker extends Thread {
         pizzeria.decrementBakers();
     }
 
+    /**
+     * toStorage.
+     */
     private void toStorage(Order order) throws InterruptedException {
         storageQueue.put(order);
     }
 
+    /**
+     * run.
+     */
     @Override
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {

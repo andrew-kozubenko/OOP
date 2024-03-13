@@ -1,14 +1,19 @@
 package org.example.pizzeria.orders;
 
+import static org.mockito.Mockito.*;
+
 import org.example.pizzeria.blockingQueue.MyBlockingQueue;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.*;
-
+/**
+ * OrderAcceptanceTest.
+ */
 public class OrderAcceptanceTest {
-
+    /**
+     * testOrderAcceptance.
+     */
     @Test
     public void testOrderAcceptance() throws InterruptedException {
         // Создание мока для очереди заказов

@@ -7,22 +7,31 @@ import org.example.pizzeria.orders.Order;
 import org.example.pizzeria.orders.OrderAcceptance;
 import org.example.pizzeria.orders.OrdersGenerator;
 import org.example.pizzeria.workers.WorkerGenerator;
-
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Pizzeria.
+ */
 public class Pizzeria {
     private AtomicInteger activeBakers;
     private AtomicInteger activeCouriers;
     private MyBlockingQueue<Order> ordersQueue;
     private MyBlockingQueue<Order> storageQueue;
 
+    /**
+     * Pizzeria.
+     */
     public Pizzeria (Integer maxOrders, Integer maxStorage) {
         this.ordersQueue = new MyBlockingQueue<Order>(maxOrders);
         this.storageQueue = new MyBlockingQueue<Order>(maxStorage);
     }
+
+    /**
+     * startWorkingDay.
+     */
     public void startWorkingDay() {
         activeBakers = new AtomicInteger(0);
         activeCouriers = new AtomicInteger(0);
@@ -67,6 +76,9 @@ public class Pizzeria {
         System.out.println("Пиццерия закрыта.");
     }
 
+    /**
+     * waitForBakerss.
+     */
     public void waitForBakerss(List<Baker> bakers) {
         // Ожидаем, пока все заказы не будут обработаны
         while (!ordersQueue.isEmpty() || activeBakers.get() > 0) {
@@ -86,6 +98,9 @@ public class Pizzeria {
         }
     }
 
+    /**
+     * waitForCouriers.
+     */
     public void waitForCouriers(List<Courier> couriers) {
         // Ожидаем, пока все пиццы не будут развезены
         while (!storageQueue.isEmpty() || activeCouriers.get() > 0) {
@@ -105,18 +120,30 @@ public class Pizzeria {
         }
     }
 
+    /**
+     * incrementBakers.
+     */
     public void incrementBakers() {
         activeBakers.incrementAndGet();
     }
 
+    /**
+     * decrementBakers.
+     */
     public void decrementBakers() {
         activeBakers.decrementAndGet();
     }
 
+    /**
+     * incrementCouriers.
+     */
     public void incrementCouriers() {
         activeCouriers.incrementAndGet();
     }
 
+    /**
+     * decrementCouriers.
+     */
     public void decrementCouriers() {
         activeCouriers.decrementAndGet();
     }

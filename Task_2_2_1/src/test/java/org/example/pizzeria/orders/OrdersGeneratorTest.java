@@ -1,16 +1,21 @@
 package org.example.pizzeria.orders;
 
-import org.example.pizzeria.pizza.Pizza;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.example.pizzeria.pizza.Pizza;
+import org.junit.jupiter.api.Test;
+import java.util.List;
+
+/**
+ * OrdersGeneratorTest.
+ */
 public class OrdersGeneratorTest {
     private static final int MIN_ORDERS = 500;
     private static final int MAX_ORDERS = 1500;
 
+    /**
+     * testGenerateOrders.
+     */
     @Test
     public void testGenerateOrders() {
         List<Order> orders = OrdersGenerator.generateOrders();

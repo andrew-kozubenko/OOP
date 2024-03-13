@@ -1,12 +1,17 @@
 package org.example.pizzeria.blockingQueue;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.example.pizzeria.interfaces.BlockingQueue;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * MyBlockingQueueTest.
+ */
 public class MyBlockingQueueTest {
-
+    /**
+     * testPutAndTake.
+     */
     @Test
     public void testPutAndTake() throws InterruptedException {
         int size = 5;
@@ -41,6 +46,9 @@ public class MyBlockingQueueTest {
         assertTrue(queue.isEmpty());
     }
 
+    /**
+     * testIsEmpty.
+     */
     @Test
     public void testIsEmpty() {
         BlockingQueue<Integer> queue = new MyBlockingQueue<>(5);

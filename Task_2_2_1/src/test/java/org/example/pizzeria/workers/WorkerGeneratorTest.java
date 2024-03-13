@@ -1,19 +1,23 @@
 package org.example.pizzeria.workers;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+
 import org.example.pizzeria.Pizzeria;
 import org.example.pizzeria.blockingQueue.MyBlockingQueue;
 import org.example.pizzeria.bakery.Baker;
 import org.example.pizzeria.delivery.Courier;
 import org.example.pizzeria.orders.Order;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-
+/**
+ * WorkerGeneratorTest.
+ */
 public class WorkerGeneratorTest {
-
+    /**
+     * testGenerateBakers.
+     */
     @Test
     public void testGenerateBakers() {
         // Создаем моки очередей и пиццерии
@@ -28,6 +32,9 @@ public class WorkerGeneratorTest {
         assertEquals(5, bakers.size());
     }
 
+    /**
+     * testGenerateCouriers.
+     */
     @Test
     public void testGenerateCouriers() {
         // Создаем моки очередей и пиццерии

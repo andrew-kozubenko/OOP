@@ -4,12 +4,18 @@ import org.example.pizzeria.Pizzeria;
 import org.example.pizzeria.blockingQueue.MyBlockingQueue;
 import org.example.pizzeria.orders.Order;
 
+/**
+ * Courier.
+ */
 public class Courier extends Thread{
     private String name;
     private Integer efficiencyPerc;
     private MyBlockingQueue<Order> storageQueue;
     private Pizzeria pizzeria;
 
+    /**
+     * Courier.
+     */
     public Courier (String name, Integer efficiencyPerc,
                     MyBlockingQueue<Order> storageQueue,
                     Pizzeria pizzeria) {
@@ -24,6 +30,9 @@ public class Courier extends Thread{
         this.pizzeria = pizzeria;
     }
 
+    /**
+     * deliver.
+     */
     public void deliver() throws InterruptedException {
         Order order = storageQueue.take();
         pizzeria.incrementCouriers();
@@ -36,6 +45,9 @@ public class Courier extends Thread{
         pizzeria.decrementCouriers();
     }
 
+    /**
+     * run.
+     */
     @Override
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
