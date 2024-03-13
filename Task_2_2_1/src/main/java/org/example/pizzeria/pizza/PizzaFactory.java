@@ -11,18 +11,30 @@ public class PizzaFactory{
      * getCookingTime.
      */
     public static Integer getCookingTime(PizzaName name) {
-        return switch (name) {
-            case MARGARET -> new Margaret().getCookingTime();
-            case HAWAIIAN -> new Hawaiian().getCookingTime();
-            case PEPPERONI -> new Pepperoni().getCookingTime();
-            case NEAPOLITAN -> new Neapolitan().getCookingTime();
-            case SICILIAN -> new Sicilian().getCookingTime();
-            case SEASONS -> new Seasons().getCookingTime();
-            case CAPRICCIOSA -> new Capricciosa().getCookingTime();
-            case DIABOLA -> new Diabola().getCookingTime();
-            case CARBONARA -> new Carbonara().getCookingTime();
-            case FOUR_CHEESES -> new FourCheeses().getCookingTime();
-            default -> throw new IllegalArgumentException("Недопустимое название пиццы: " + name);
-        };
+        switch (name) {
+            case MARGARET:
+                return new Margaret().getCookingTime();
+            case HAWAIIAN:
+                return new Hawaiian().getCookingTime();
+            case PEPPERONI:
+                return new Pepperoni().getCookingTime();
+            case NEAPOLITAN:
+                return new Neapolitan().getCookingTime();
+            case SICILIAN:
+                return new Sicilian().getCookingTime();
+            case SEASONS:
+                return new Seasons().getCookingTime();
+            case CAPRICCIOSA:
+                return new Capricciosa().getCookingTime();
+            case DIABOLA:
+                return new Diabola().getCookingTime();
+            case CARBONARA:
+                return new Carbonara().getCookingTime();
+            case FOUR_CHEESES:
+                return new FourCheeses().getCookingTime();
+            default:
+                throw new IllegalArgumentException("Недопустимое название пиццы: " + name);
+        }
     }
+
 }
