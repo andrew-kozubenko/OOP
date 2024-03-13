@@ -1,0 +1,10 @@
+org.example.pizzeria
+org.example.pizzeria.bakery
+org.example.pizzeria.blockingQueue
+org.example.pizzeria.delivery
+org.example.pizzeria.interfaces
+org.example.pizzeria.orders
+org.example.pizzeria.pizza
+org.example.pizzeria.pizza.menu
+org.example.pizzeria.types
+org.example.pizzeria.workers
